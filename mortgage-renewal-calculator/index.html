@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Renewal Calculator Canada (2026) — Your New Payment</title>
+<meta name="description" content="Renewing your mortgage in Canada? Calculate your new monthly payment, see exactly how much more you'll pay, and compare interest costs over your next term. Uses correct Canadian semi-annual compounding.">
+<link rel="canonical" href="https://maplecalcs.org/mortgage-renewal-calculator/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/mortgage-renewal-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/mortgage-renewal-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/mortgage-renewal-calculator/">
+<meta property="og:title" content="Mortgage Renewal Calculator Canada — Your New Payment">
+<meta property="og:description" content="See your new payment at renewal and the true cost of today's rates, with correct Canadian semi-annual compounding.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "Mortgage Renewal Calculator Canada",
+"url": "https://maplecalcs.org/mortgage-renewal-calculator/",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"description": "Calculates a Canadian homeowner's new mortgage payment at renewal using semi-annual compounding, and compares interest cost over the next term.",
+"offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "Why did my mortgage payment go up so much at renewal?",
+"acceptedAnswer": { "@type": "Answer", "text": "Most Canadian homeowners renewing in 2025–2026 locked in historically low rates (often 1.5%–2.5%) in 2020–2021. Renewal rates are now significantly higher, and because interest is charged on your full remaining balance, even a 2-point rate increase can raise a payment by 20–40%. This is commonly called payment shock." }
+},
+{
+"@type": "Question",
+"name": "How are Canadian mortgage payments calculated?",
+"acceptedAnswer": { "@type": "Answer", "text": "By law, fixed-rate mortgages in Canada compound semi-annually, not monthly. The quoted annual rate is first converted to an effective monthly rate using i = (1 + r/2)^(1/6) − 1, and the payment is then calculated with the standard amortization formula. Calculators that assume monthly compounding (common on US sites) overstate Canadian payments slightly." }
+},
+{
+"@type": "Question",
+"name": "Can I extend my amortization at renewal to lower the payment?",
+"acceptedAnswer": { "@type": "Answer", "text": "Sometimes. If you renew with your existing lender, extending amortization usually requires refinancing and requalifying. Some lenders offer limited re-amortization options at renewal. Extending lowers the monthly payment but increases total interest paid over the life of the mortgage — you can model this by increasing the remaining amortization input above." }
+},
+{
+"@type": "Question",
+"name": "Do I have to pass the stress test again when I renew?",
+"acceptedAnswer": { "@type": "Answer", "text": "If you renew with your current lender, no requalification or stress test applies. Since late 2023, straight switches of uninsured mortgages to a new lender at renewal (same amortization and loan amount) also do not require the stress test. Refinances — where you change the loan amount or amortization — still require full qualification." }
+},
+{
+"@type": "Question",
+"name": "Is there a penalty for switching lenders at renewal?",
+"acceptedAnswer": { "@type": "Answer", "text": "No prepayment penalty applies if you switch on your renewal date, because your term contract has ended. You may still pay administrative costs such as discharge, transfer, and appraisal fees, though a new lender often covers some of these to win your business." }
+},
+{
+"@type": "Question",
+"name": "Does this calculator work for variable-rate mortgages?",
+"acceptedAnswer": { "@type": "Answer", "text": "Yes, as an estimate. Variable rates in Canada typically compound monthly rather than semi-annually, so the true payment differs slightly. For fixed-to-fixed renewals — the most common case — the semi-annual math used here is exact." }
+}
+]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B;
+--paper:#F6F7F3;
+--card:#FFFFFF;
+--pine:#0E5A43;
+--pine-soft:#E3EEE8;
+--shock:#B3372E;
+--shock-soft:#F7E9E7;
+--line:#D9DED7;
+--muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+/* ── Header ── */
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.flag{font-family:var(--mono);font-size:.75rem;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+/* ── Hero ── */
+.hero{padding:40px 0 8px}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;max-width:22ch}
+.hero p{margin-top:12px;color:var(--muted);max-width:60ch}
+
+/* ── Calculator card ── */
+.calc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:26px 0;overflow:hidden;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:720px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:26px;border-right:1px solid var(--line)}
+@media(max-width:720px){.inputs{border-right:none;border-bottom:1px solid var(--line)}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:1.05rem;font-weight:500;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ── Results: the statement ── */
+.results{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFA 100%)}
+.stmt-label{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stmt-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);gap:10px}
+.stmt-row .k{font-size:.9rem;color:var(--muted)}
+.stmt-row .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.big{padding:16px 0 6px}
+.big .stmt-label{color:var(--pine)}
+.big .v-big{font-family:var(--mono);font-weight:700;font-size:clamp(2rem,6vw,2.7rem);letter-spacing:-0.02em;line-height:1.1;display:block;margin-top:2px}
+.delta{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:999px;font-family:var(--mono);font-weight:700;font-size:.95rem}
+.delta.up{background:var(--shock-soft);color:var(--shock)}
+.delta.down{background:var(--pine-soft);color:var(--pine)}
+.term-cost{margin-top:18px;padding:14px;border-radius:10px;background:var(--pine-soft);font-size:.9rem}
+.term-cost strong{font-family:var(--mono)}
+
+/* ── Chart ── */
+.chart-box{padding:22px 26px 26px;border-top:1px solid var(--line)}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chart-head h2{font-size:1rem;font-weight:700}
+.legend{display:flex;gap:16px;font-size:.78rem;color:var(--muted);font-family:var(--mono)}
+.legend i{display:inline-block;width:18px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+canvas{width:100%;height:auto;display:block}
+
+/* ── Content sections ── */
+section.content{padding:34px 0;border-top:1px solid var(--line)}
+section.content h2{font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+section.content p{margin-bottom:12px;max-width:68ch}
+section.content .formula{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:.95rem;overflow-x:auto}
+.example-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.example-table th,.example-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.example-table th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--paper)}
+.example-table td:last-child{font-family:var(--mono);font-weight:700}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;padding:0}
+.faq summary{padding:16px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--pine);font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 16px;color:var(--muted);max-width:none}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:75ch;margin-bottom:8px}
+
+.ad-slot{margin:10px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/">MapleCalcs <span>· Canadian money calculators</span></a>
+<span class="flag">EN | <a href="/zh/mortgage-renewal-calculator/" style="color:var(--pine);text-decoration:none">繁體中文</a></span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>Mortgage Renewal Calculator</h1>
+<p>Renewing at a higher rate? See your new payment, the monthly increase, and what the new rate costs you in interest over your next term — calculated with the semi-annual compounding Canadian lenders actually use.</p>
+</div>
+
+<div class="calc">
+<div class="calc-grid">
+<div class="inputs">
+<div class="field">
+<label for="balance">Mortgage balance at renewal</label>
+<input type="text" id="balance" inputmode="decimal" value="450,000">
+<div class="hint">On your renewal statement, or your latest annual statement.</div>
+</div>
+<div class="two-col">
+<div class="field">
+<label for="oldRate">Current rate (%)</label>
+<input type="text" id="oldRate" inputmode="decimal" value="2.19">
+</div>
+<div class="field">
+<label for="newRate">Renewal rate (%)</label>
+<input type="text" id="newRate" inputmode="decimal" value="4.79">
+</div>
+</div>
+<div class="two-col">
+<div class="field">
+<label for="amort">Remaining amortization</label>
+<select id="amort"></select>
+</div>
+<div class="field">
+<label for="term">New term</label>
+<select id="term">
+<option value="1">1 year</option><option value="2">2 years</option>
+<option value="3">3 years</option><option value="4">4 years</option>
+<option value="5" selected>5 years</option><option value="7">7 years</option>
+<option value="10">10 years</option>
+</select>
+</div>
+</div>
+<div class="field">
+<label for="freq">Payment frequency</label>
+<select id="freq">
+<option value="12" selected>Monthly</option>
+<option value="26">Bi-weekly (every 2 weeks)</option>
+</select>
+</div>
+</div>
+
+<div class="results">
+<div class="big">
+<span class="stmt-label">Your new payment</span>
+<span class="v-big" id="newPay">$—</span>
+<span class="delta up" id="delta">—</span>
+</div>
+<div class="stmt-row"><span class="k">Current payment</span><span class="v" id="oldPay">$—</span></div>
+<div class="stmt-row"><span class="k">Increase per year</span><span class="v" id="yearDelta">$—</span></div>
+<div class="stmt-row"><span class="k">Balance at end of term</span><span class="v" id="endBal">$—</span></div>
+<div class="term-cost" id="termCost">
+Over your <strong id="tcYears">5-year</strong> term, the new rate costs <strong id="tcInterest">$—</strong> in interest — <strong id="tcExtra">$—</strong> more than if your old rate had continued.
+</div>
+</div>
+</div>
+
+<div class="chart-box">
+<div class="chart-head">
+<h2>Remaining balance over time</h2>
+<div class="legend">
+<span><i style="background:#9AAAA0"></i>at old rate</span>
+<span><i style="background:#0E5A43"></i>at renewal rate</span>
+</div>
+</div>
+<canvas id="chart" width="860" height="360" role="img" aria-label="Line chart comparing remaining mortgage balance over the amortization period at the old rate versus the renewal rate"></canvas>
+</div>
+</div>
+
+<!-- AdSense slot 1: below calculator -->
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>How this calculator works</h2>
+<p>Fixed-rate mortgages in Canada are required by the Interest Act to compound <strong>semi-annually, not in advance</strong>. That means the rate your lender quotes — say 4.79% — is first converted into an effective monthly rate before your payment is calculated:</p>
+<div class="formula">i = (1 + r ⁄ 2)<sup>1⁄6</sup> − 1 &nbsp;&nbsp;→&nbsp;&nbsp; payment M = P · i ⁄ (1 − (1 + i)<sup>−n</sup>)</div>
+<p>where <em>r</em> is the quoted annual rate, <em>P</em> is your balance at renewal, and <em>n</em> is the number of payments left in your amortization. Many online calculators — especially American ones — assume monthly compounding and quietly overstate Canadian payments. This tool uses the exact Canadian convention, so the result should match your lender's renewal offer to within a dollar or two.</p>
+<p>The interest comparison holds your remaining amortization constant and asks one question: over the term you select, how much more interest does the new rate cost than the old one would have? That number — not the sticker rate — is the real price of renewing today.</p>
+</section>
+
+<section class="content">
+<h2>Worked example: the 2021 → 2026 renewal cliff</h2>
+<p>A homeowner who bought in 2021 with a 5-year fixed at 2.19% now renews $450,000 with 20 years of amortization left, at 4.79%:</p>
+<table class="example-table">
+<tr><th>Line</th><th></th><th>Amount</th></tr>
+<tr><td>Old monthly payment</td><td>2.19%, 20 yr remaining</td><td>≈ $2,315</td></tr>
+<tr><td>New monthly payment</td><td>4.79%, same amortization</td><td>≈ $2,906</td></tr>
+<tr><td>Payment shock</td><td>per month</td><td>+ $591 (+25.5%)</td></tr>
+<tr><td>Extra interest over the 5-year term</td><td>vs. old rate continuing</td><td>≈ $54,000</td></tr>
+</table>
+<p>The monthly increase gets the attention, but the term-interest line is the number that should drive decisions — it is what shopping an extra 0.2% off your renewal rate, or making a lump-sum prepayment before renewal, actually saves you.</p>
+</section>
+
+<!-- AdSense slot 2: mid-content -->
+<div class="ad-slot"></div>
+
+<section class="content faq">
+<h2>Renewal questions, answered</h2>
+<details>
+<summary>Why did my payment go up so much at renewal?</summary>
+<p>Most homeowners renewing in 2025–2026 locked in historically low rates (often 1.5%–2.5%) in 2020–2021. Because interest is charged on your full remaining balance, even a 2-point rate increase can raise a payment 20–40% — commonly called payment shock.</p>
+</details>
+<details>
+<summary>How are Canadian mortgage payments calculated?</summary>
+<p>Fixed-rate mortgages in Canada compound semi-annually by law. The quoted rate is converted to an effective monthly rate with i = (1 + r/2)^(1/6) − 1, then the standard amortization formula applies. US-style calculators that assume monthly compounding overstate Canadian payments slightly.</p>
+</details>
+<details>
+<summary>Can I extend my amortization at renewal to lower the payment?</summary>
+<p>Sometimes. With your existing lender this usually means refinancing and requalifying, though some lenders offer limited re-amortization at renewal. Extending lowers the payment but increases lifetime interest — model it by increasing the remaining-amortization input above.</p>
+</details>
+<details>
+<summary>Do I have to pass the stress test again when I renew?</summary>
+<p>Renewing with your current lender requires no requalification. Since late 2023, straight switches of uninsured mortgages to a new lender at renewal (same amount, same amortization) also skip the stress test. Refinances still require full qualification.</p>
+</details>
+<details>
+<summary>Is there a penalty for switching lenders at renewal?</summary>
+<p>No prepayment penalty applies on your renewal date, because your term has ended. Expect administrative costs — discharge, transfer, appraisal — though new lenders often cover some of these to win your business.</p>
+</details>
+<details>
+<summary>Does this work for variable-rate mortgages?</summary>
+<p>As an estimate, yes. Variable-rate mortgages typically compound monthly rather than semi-annually, so the true payment differs slightly. For fixed-to-fixed renewals — the most common case — the math here is exact.</p>
+</details>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Disclaimer:</strong> This calculator is for education and planning only and is not financial, lending, or legal advice. Actual payments depend on your lender's terms, payment dates, and rounding. Confirm figures with your lender or a licensed mortgage professional before making decisions.</p>
+<p>© 2026 MapleCalcs · Made in Canada 🍁</p>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});
+const fmt2 = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',minimumFractionDigits:2,maximumFractionDigits:2});
+const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
+
+/* populate amortization 1–30 yrs */
+const amortSel = $('amort');
+for(let y=1;y<=30;y++){
+const o=document.createElement('option');
+o.value=y;o.textContent=y+' years';
+if(y===20)o.selected=true;
+amortSel.appendChild(o);
+}
+
+/* ---------- Canadian mortgage math ----------
+Fixed-rate mortgages compound semi-annually (Interest Act).
+Effective per-period rate for p payments/yr:
+i = (1 + r/2)^(2/p) − 1
+*/
+const periodRate = (annual, perYear) => Math.pow(1 + annual/2, 2/perYear) - 1;
+
+const payment = (P, i, n) => i === 0 ? P/n : P * i / (1 - Math.pow(1+i, -n));
+
+const balanceAfter = (P, i, M, k) => {
+const g = Math.pow(1+i, k);
+return P*g - M*(g-1)/(i||1e-12);
+};
+
+/* ---------- compute + render ---------- */
+function calc(){
+const P = parseNum($('balance').value);
+const rOld = parseNum($('oldRate').value)/100;
+const rNew = parseNum($('newRate').value)/100;
+const yrs = parseInt($('amort').value,10);
+const term = parseInt($('term').value,10);
+const p = parseInt($('freq').value,10);
+
+if(P<=0 || yrs<=0){ return; }
+
+const n = yrs*p;
+const iOld = periodRate(rOld,p);
+const iNew = periodRate(rNew,p);
+const mOld = payment(P,iOld,n);
+const mNew = payment(P,iNew,n);
+const dm = mNew - mOld;
+
+const kTerm = Math.min(term*p, n);
+const balNewEnd = Math.max(0, balanceAfter(P,iNew,mNew,kTerm));
+const balOldEnd = Math.max(0, balanceAfter(P,iOld,mOld,kTerm));
+const intNew = mNew*kTerm - (P-balNewEnd);
+const intOld = mOld*kTerm - (P-balOldEnd);
+
+const unit = p===12 ? '/mo' : '/2wk';
+$('newPay').textContent = fmt2.format(mNew) + ' ' + unit;
+$('oldPay').textContent = fmt2.format(mOld);
+$('yearDelta').textContent = (dm>=0?'+':'−') + fmt.format(Math.abs(dm)*p);
+$('endBal').textContent = fmt.format(balNewEnd);
+
+const dEl = $('delta');
+const pct = mOld>0 ? (dm/mOld*100) : 0;
+dEl.textContent = (dm>=0?'+':'−') + fmt2.format(Math.abs(dm)) + ' (' + (dm>=0?'+':'−') + Math.abs(pct).toFixed(1) + '%)';
+dEl.className = 'delta ' + (dm>=0 ? 'up' : 'down');
+
+$('tcYears').textContent = term + '-year';
+$('tcInterest').textContent = fmt.format(intNew);
+$('tcExtra').textContent = fmt.format(Math.abs(intNew-intOld)) + (intNew>=intOld?'':' less');
+
+drawChart(P,iOld,mOld,iNew,mNew,n,kTerm,p);
+}
+
+/* ---------- canvas chart ---------- */
+function drawChart(P,iOld,mOld,iNew,mNew,n,kTerm,p){
+const cv=$('chart'), ctx=cv.getContext('2d');
+const dpr=window.devicePixelRatio||1;
+const cssW=cv.clientWidth||860, cssH=cssW<560?300:360;
+cv.width=cssW*dpr; cv.height=cssH*dpr; ctx.scale(dpr,dpr);
+ctx.clearRect(0,0,cssW,cssH);
+
+const padL=54,padR=14,padT=14,padB=30;
+const W=cssW-padL-padR, H=cssH-padT-padB;
+const yrsTotal=n/p;
+
+const oldPts=[],newPts=[];
+for(let k=0;k<=n;k+=Math.max(1,Math.round(n/240))){
+oldPts.push([k, Math.max(0,balanceAfter(P,iOld,mOld,k))]);
+newPts.push([k, Math.max(0,balanceAfter(P,iNew,mNew,k))]);
+}
+const x=k=>padL + (k/n)*W;
+const y=v=>padT + (1-v/P)*H;
+
+/* grid + axes */
+ctx.strokeStyle='#E4E8E2';ctx.lineWidth=1;ctx.font='11px "Spline Sans Mono",monospace';ctx.fillStyle='#8A968D';
+for(let g=0;g<=4;g++){
+const gy=padT+H*g/4;
+ctx.beginPath();ctx.moveTo(padL,gy);ctx.lineTo(padL+W,gy);ctx.stroke();
+ctx.fillText('$'+Math.round(P*(1-g/4)/1000)+'k',6,gy+4);
+}
+const step=yrsTotal>20?5:(yrsTotal>10?4:2);
+for(let yr=0;yr<=yrsTotal;yr+=step){
+ctx.fillText(yr+'y',x(yr*p)-8,cssH-8);
+}
+
+/* end-of-term marker */
+ctx.strokeStyle='#B3372E';ctx.setLineDash([4,4]);ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(x(kTerm),padT);ctx.lineTo(x(kTerm),padT+H);ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='#B3372E';
+ctx.fillText('term ends',Math.min(x(kTerm)+6,cssW-70),padT+12);
+
+/* curves */
+const draw=(pts,color,width)=>{
+ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();
+pts.forEach(([k,v],idx)=>{ idx?ctx.lineTo(x(k),y(v)):ctx.moveTo(x(k),y(v)); });
+ctx.stroke();
+};
+draw(oldPts,'#9AAAA0',2);
+draw(newPts,'#0E5A43',2.5);
+}
+
+/* ---------- events ---------- */
+['balance','oldRate','newRate','amort','term','freq'].forEach(id=>{
+$(id).addEventListener('input',calc);
+$(id).addEventListener('change',calc);
+});
+$('balance').addEventListener('blur',e=>{
+const v=parseNum(e.target.value);
+if(v>0)e.target.value=new Intl.NumberFormat('en-CA').format(v);
+});
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(calc,150);});
+
+calc();
+})();
+</script>
+</body>
+</html>
