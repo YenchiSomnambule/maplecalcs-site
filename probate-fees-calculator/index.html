@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probate Fees Calculator Canada — Every Province Compared (2026)</title>
+<meta name="description" content="Calculate probate fees (estate administration tax) for any Canadian province or territory, and see the same estate compared across all 13 — from $0 in Manitoba to Canada's highest rates in Nova Scotia, Ontario and BC.">
+<link rel="canonical" href="https://maplecalcs.org/probate-fees-calculator/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/probate-fees-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/probate-fees-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/probate-fees-calculator/">
+<meta property="og:title" content="Probate Fees Calculator Canada — Every Province Compared">
+<meta property="og:description" content="Probate fees for all 13 provinces and territories, compared on your estate value.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "Probate Fees Calculator Canada",
+"url": "https://maplecalcs.org/probate-fees-calculator/",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"description": "Calculates probate fees (estate administration tax) for every Canadian province and territory using each jurisdiction's statutory fee schedule, and compares the same estate value across all thirteen.",
+"offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "Which assets have to go through probate?",
+"acceptedAnswer": { "@type": "Answer", "text": "Generally, assets held in the deceased's name alone with no named beneficiary: solely-owned real estate, bank and non-registered investment accounts, vehicles, and private company shares (in most provinces). Assets that bypass probate include anything with a valid beneficiary designation — RRSPs, RRIFs, TFSAs, life insurance, pensions — and property held in joint tenancy with right of survivorship. In most provinces, real estate is counted net of the mortgage against it." }
+},
+{
+"@type": "Question",
+"name": "Which province has the highest and lowest probate fees?",
+"acceptedAnswer": { "@type": "Answer", "text": "Nova Scotia has Canada's highest rate: $16.95 per $1,000 above $100,000, roughly 1.7% at the margin. Ontario (1.5% above $50,000) and BC (1.4% above $50,000 plus a $200 filing fee) follow. At the other end, Manitoba eliminated probate fees entirely in November 2020, Quebec notarial wills skip probate altogether, and Alberta caps fees at $525 no matter how large the estate." }
+},
+{
+"@type": "Question",
+"name": "Is probate a tax on the beneficiaries?",
+"acceptedAnswer": { "@type": "Answer", "text": "No. Probate fees are paid out of the estate before anything is distributed, and Canada has no inheritance tax. The often much larger cost at death is income tax on the final return: deemed disposition of capital property and full income inclusion of RRSP/RRIF balances can dwarf probate fees by five to ten times. Probate planning matters, but tax planning matters more." }
+},
+{
+"@type": "Question",
+"name": "How can probate fees be reduced legally?",
+"acceptedAnswer": { "@type": "Answer", "text": "The standard strategies: name beneficiaries on every registered account and insurance policy; hold the family home and main accounts in joint tenancy with a spouse; in Ontario and BC, use a multiple-wills strategy so private company shares and other non-probate assets pass under a secondary will; in Quebec, use a notarial will; and for those 65+, alter-ego or joint-partner trusts can remove assets from the estate entirely. Each carries legal and tax trade-offs — adding adult children as joint owners in particular can backfire badly." }
+},
+{
+"@type": "Question",
+"name": "Why does Manitoba charge nothing?",
+"acceptedAnswer": { "@type": "Answer", "text": "Manitoba eliminated probate charges on November 6, 2020 — previously it charged $70 on the first $10,000 plus 0.7% above. Estates still go through the probate process and pay small court filing fees, but the value-based fee is gone, making Manitoba the only province where the size of the estate doesn't matter." }
+},
+{
+"@type": "Question",
+"name": "Do these fees apply to property in another province?",
+"acceptedAnswer": { "@type": "Answer", "text": "Probate is granted where the deceased lived, but real estate in another province may require a separate resealing or ancillary grant there — and that province's fees can apply to the property located in it. Out-of-province vacation property is a classic reason estates end up paying probate in two jurisdictions, and a common trigger for planning with trusts or joint ownership." }
+}
+]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --shock-soft:#F7E9E7;
+--line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:40px 0 8px}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;max-width:22ch}
+.hero p{margin-top:12px;color:var(--muted);max-width:60ch}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:26px 0;overflow:hidden;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.calc-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:0}
+@media(max-width:720px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:26px;border-right:1px solid var(--line)}
+@media(max-width:720px){.inputs{border-right:none;border-bottom:1px solid var(--line)}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:1.05rem;font-weight:500;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.results{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFA 100%)}
+.stmt-label{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stmt-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);gap:10px}
+.stmt-row .k{font-size:.9rem;color:var(--muted)}
+.stmt-row .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.big{padding:16px 0 6px}
+.big .stmt-label{color:var(--shock)}
+.big .v-big{font-family:var(--mono);font-weight:700;font-size:clamp(2rem,6vw,2.7rem);letter-spacing:-0.02em;line-height:1.1;display:block;margin-top:2px;color:var(--shock)}
+.big .sub{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:999px;font-family:var(--mono);font-weight:700;font-size:.85rem;background:var(--shock-soft);color:var(--shock)}
+.big .sub.ok{background:var(--pine-soft);color:var(--pine)}
+.note{margin-top:16px;padding:14px;border-radius:10px;background:var(--pine-soft);font-size:.86rem}
+.chart-box{padding:22px 26px 26px;border-top:1px solid var(--line)}
+.chart-box h2{font-size:1rem;font-weight:700;margin-bottom:14px}
+.pbar{margin-bottom:9px}
+.pbar .lab{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:3px}
+.pbar .lab .n{color:var(--muted)}
+.pbar .lab .amt{font-family:var(--mono);font-weight:700}
+.pbar .track{height:10px;background:var(--paper);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.pbar .fill{height:100%;border-radius:999px;background:#B9C6BE}
+.pbar.me .fill{background:var(--pine)}
+.pbar.me .lab .n{color:var(--pine);font-weight:700}
+.pbar.me .lab .amt{color:var(--pine)}
+section.content{padding:34px 0;border-top:1px solid var(--line)}
+section.content h2{font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+section.content p{margin-bottom:12px;max-width:68ch}
+section.content .formula{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:.9rem;overflow-x:auto}
+.example-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.example-table th,.example-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.example-table th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--paper)}
+.example-table td:last-child{font-family:var(--mono);font-weight:700}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.faq summary{padding:16px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--pine);font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 16px;color:var(--muted);max-width:none}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:75ch;margin-bottom:8px}
+.ad-slot{margin:10px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/">MapleCalcs <span>· Canadian money calculators</span></a>
+<span class="lang">EN | <a href="/zh/probate-fees-calculator/">繁體中文</a></span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>Probate Fees Calculator — Every Province</h1>
+<p>The same estate pays wildly different probate fees depending on where you live: $0 in Manitoba, $525 flat in Alberta, five figures in Nova Scotia, Ontario or BC. Pick your province, enter the estate value, and see your fee — and what all thirteen jurisdictions would charge on the same estate.</p>
+</div>
+
+<div class="calc">
+<div class="calc-grid">
+<div class="inputs">
+<div class="field">
+<label for="prov">Province / territory</label>
+<select id="prov">
+<option value="ON" selected>Ontario</option>
+<option value="BC">British Columbia</option>
+<option value="AB">Alberta</option>
+<option value="SK">Saskatchewan</option>
+<option value="MB">Manitoba</option>
+<option value="QC">Quebec (notarial will)</option>
+<option value="NB">New Brunswick</option>
+<option value="NS">Nova Scotia</option>
+<option value="PE">Prince Edward Island</option>
+<option value="NL">Newfoundland &amp; Labrador</option>
+<option value="YT">Yukon</option>
+<option value="NT">Northwest Territories</option>
+<option value="NU">Nunavut</option>
+</select>
+</div>
+<div class="field">
+<label for="val">Estate value subject to probate</label>
+<input type="text" id="val" inputmode="decimal" value="750,000">
+<div class="hint">Only assets passing through the will. Joint property and accounts with named beneficiaries (RRSP, TFSA, insurance) bypass probate. Real estate usually counts net of its mortgage.</div>
+</div>
+</div>
+
+<div class="results">
+<div class="big">
+<span class="stmt-label">Estimated probate fee</span>
+<span class="v-big" id="fee">$—</span>
+<span class="sub" id="sub">—</span>
+</div>
+<div class="stmt-row"><span class="k">Effective rate</span><span class="v" id="rate">—</span></div>
+<div class="stmt-row"><span class="k">Cheapest province on this estate</span><span class="v" id="cheap">—</span></div>
+<div class="stmt-row"><span class="k">Most expensive province</span><span class="v" id="dear">—</span></div>
+<div class="note" id="noteBox">—</div>
+</div>
+</div>
+
+<div class="chart-box">
+<h2>The same estate, all 13 jurisdictions</h2>
+<div id="bars"></div>
+</div>
+</div>
+
+<!-- AdSense slot 1: below calculator -->
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>How each province charges</h2>
+<p>Probate fees — Ontario calls its version the <strong>Estate Administration Tax</strong> — are provincial court fees on the value of the estate passing through the will. The structures fall into four families:</p>
+<div class="formula">Percentage above an exemption — ON: 1.5% over $50,000 · BC: 0.6% on $25–50K + 1.4% over $50K (+ $200 filing)<br>Pure percentage — SK: 0.7% · NB: 0.5% · NL: 0.6% + $60 · NS: tiers, then $16.95/$1,000 over $100K · PEI: tiers, then 0.4%<br>Flat caps — AB: $35–$525 max · YT: $140 · NWT/NU: ≤ $435 (nominal court tariffs)<br>Zero — MB: eliminated Nov 2020 · QC: notarial wills skip probate (non-notarial ≈ $211 court verification)</div>
+<p>The differences compound with estate size. Alberta's cap means a $30-million estate pays the same $525 as a $300,000 one; Nova Scotia's marginal $16.95 per $1,000 is the country's steepest and keeps running with no ceiling. This is why identical financial lives produce five-figure differences in estate costs purely by postal code — and why probate planning is a big industry in Ontario and BC and nearly irrelevant in Alberta and Manitoba.</p>
+</section>
+
+<section class="content">
+<h2>Worked example: a $750,000 estate coast to coast</h2>
+<table class="example-table">
+<tr><th>Jurisdiction</th><th>How it's computed</th><th>Fee</th></tr>
+<tr><td>Nova Scotia</td><td>$1,002.65 + $16.95 × 650</td><td>$12,020</td></tr>
+<tr><td>Ontario</td><td>($750,000 − $50,000) × 1.5%</td><td>$10,500</td></tr>
+<tr><td>British Columbia</td><td>$150 + $9,800 + $200 filing</td><td>$10,150</td></tr>
+<tr><td>Saskatchewan</td><td>$750,000 × 0.7%</td><td>$5,250</td></tr>
+<tr><td>Alberta</td><td>flat bracket, over $250,000</td><td>$525</td></tr>
+<tr><td>Manitoba</td><td>fees eliminated Nov 2020</td><td>$0</td></tr>
+</table>
+<p>Same estate, a <strong>$12,000 spread</strong>. And note what the fee is charged on: only the probatable estate. A $750,000 net worth where the house is jointly owned and the RRSP and TFSA have named beneficiaries might probate only $200,000 — turning Ontario's bill from $10,500 into $2,250. The composition of the estate matters as much as the province.</p>
+</section>
+
+<!-- AdSense slot 2: mid-content -->
+<div class="ad-slot"></div>
+
+<section class="content faq">
+<h2>Probate questions, answered</h2>
+<details>
+<summary>Which assets have to go through probate?</summary>
+<p>Assets in the deceased's name alone with no beneficiary: solely-owned real estate, bank and non-registered accounts, vehicles. Bypassing probate: anything with a valid beneficiary designation (RRSP, RRIF, TFSA, insurance, pensions) and joint-tenancy property. Real estate usually counts net of its mortgage.</p>
+</details>
+<details>
+<summary>Which province is highest? Lowest?</summary>
+<p>Highest: Nova Scotia ($16.95/$1,000 above $100K), then Ontario (1.5%) and BC (1.4% + $200). Lowest: Manitoba ($0 since Nov 2020), Quebec notarial wills ($0), Alberta (capped at $525).</p>
+</details>
+<details>
+<summary>Is probate a tax on beneficiaries?</summary>
+<p>No — it's paid by the estate before distribution, and Canada has no inheritance tax. The bigger cost at death is usually income tax on the final return: deemed disposition of capital gains and RRSP/RRIF income inclusion often dwarf probate by 5–10×.</p>
+</details>
+<details>
+<summary>How do people legally reduce probate fees?</summary>
+<p>Beneficiary designations on all registered accounts and insurance; joint tenancy with a spouse on the home; multiple wills in Ontario and BC for private company shares; a notarial will in Quebec; alter-ego or joint-partner trusts after 65. Each has trade-offs — adding adult children as joint owners can trigger capital gains, creditor exposure, and family disputes.</p>
+</details>
+<details>
+<summary>Why does Manitoba charge nothing?</summary>
+<p>Manitoba eliminated probate charges on November 6, 2020 (previously $70 + 0.7%). Estates still go through the process and pay small filing fees, but the value-based fee is gone.</p>
+</details>
+<details>
+<summary>What about property in another province?</summary>
+<p>Probate is granted where the deceased lived, but real estate elsewhere may need a resealing or ancillary grant in that province — and its fees can apply to that property. Out-of-province cottages are the classic double-probate trigger.</p>
+</details>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Disclaimer:</strong> This calculator is for education and planning only and is not legal or tax advice. Fee schedules are set by each province's statutes and court tariffs and can change; Quebec and territorial figures are nominal court fees and approximate. Verify with the provincial court or an estate lawyer before relying on any figure.</p>
+<p>© 2026 MapleCalcs · Made in Canada 🍁</p>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});
+const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
+
+const NAMES={ON:'Ontario',BC:'British Columbia',AB:'Alberta',SK:'Saskatchewan',MB:'Manitoba',QC:'Quebec (notarial)',NB:'New Brunswick',NS:'Nova Scotia',PE:'PEI',NL:'Newfoundland & Labrador',YT:'Yukon',NT:'Northwest Territories',NU:'Nunavut'};
+
+const CALC={
+ON:v=>Math.max(0,v-50000)*0.015,
+BC:v=>(Math.min(v,50000)>25000?(Math.min(v,50000)-25000)*0.006:0)+(v>50000?(v-50000)*0.014:0)+(v>25000?200:0),
+AB:v=>v<=10000?35:v<=25000?135:v<=125000?275:v<=250000?400:525,
+SK:v=>v*0.007,
+MB:v=>0,
+QC:v=>0,
+NB:v=>v<=5000?25:v<=10000?50:v<=15000?75:v<=20000?100:v*0.005,
+NS:v=>v<=10000?85.60:v<=25000?215.20:v<=50000?358.15:v<=100000?1002.65:1002.65+16.95*Math.ceil((v-100000)/1000),
+PE:v=>v<=10000?50:v<=25000?100:v<=50000?200:v<=100000?400:400+4*Math.ceil((v-100000)/1000),
+NL:v=>v<=1000?60:60+0.006*(v-1000),
+YT:v=>v<=25000?0:140,
+NT:v=>v<=10000?30:v<=25000?110:v<=125000?215:v<=250000?325:435,
+NU:v=>v<=10000?25:v<=25000?100:v<=125000?200:v<=250000?300:400
+};
+
+const NOTES={
+ON:'Ontario Estate Administration Tax: first $50,000 exempt, then $15 per $1,000 (1.5%). Real estate counts net of mortgage.',
+BC:'BC: no fee under $25,000; 0.6% on $25–50K, 1.4% above $50K, plus a $200 filing fee.',
+AB:'Alberta caps court fees at $525 for any estate over $250,000 — the same fee whether $300K or $30M.',
+SK:'Saskatchewan: flat 0.7% ($7 per $1,000) on the full estate value, real estate net of mortgage.',
+MB:'Manitoba eliminated probate charges on November 6, 2020 — the value-based fee is $0. Small court filing fees may still apply.',
+QC:'Quebec notarial wills skip probate entirely. A non-notarial (holograph/witnessed) will needs court verification — roughly a $211 court fee plus legal costs.',
+NB:'New Brunswick: small flat fees up to $20,000, then 0.5% ($5 per $1,000) of the full value.',
+NS:'Nova Scotia has Canada’s highest rate: tiers to $100K, then $16.95 per $1,000 (or part) above — with no ceiling.',
+PE:'PEI: tiered to $100K, then $4 per $1,000 (0.4%) above.',
+NL:'Newfoundland & Labrador: $60 on the first $1,000, then 0.6% of the remainder.',
+YT:'Yukon: $0 for estates up to $25,000, then a flat $140 — regardless of size.',
+NT:'Northwest Territories: nominal tiered court fees, maximum $435 for estates over $250,000.',
+NU:'Nunavut: nominal tiered court fees, maximum $400 for estates over $250,000.'
+};
+
+function calc(){
+const v = parseNum($('val').value);
+const p = $('prov').value;
+if(v<=0)return;
+
+const all = Object.keys(CALC).map(k=>({k,fee:CALC[k](v)}));
+const mine = all.find(a=>a.k===p);
+const sorted=[...all].sort((a,b)=>b.fee-a.fee);
+const maxFee=Math.max(sorted[0].fee,1);
+
+$('fee').textContent=fmt.format(mine.fee);
+const rate=mine.fee/v*100;
+$('rate').textContent=rate<0.005?'≈ 0%':rate.toFixed(2)+'%';
+const sub=$('sub');
+if(mine.fee===0){sub.textContent='no probate fee';sub.className='sub ok';}
+else{sub.textContent=NAMES[p];sub.className='sub';}
+const cheap=sorted[sorted.length-1], dear=sorted[0];
+$('cheap').textContent=NAMES[cheap.k]+' · '+fmt.format(cheap.fee);
+$('dear').textContent=NAMES[dear.k]+' · '+fmt.format(dear.fee);
+$('noteBox').textContent=NOTES[p];
+
+const box=$('bars'); box.innerHTML='';
+sorted.forEach(({k,fee})=>{
+const row=document.createElement('div');
+row.className='pbar'+(k===p?' me':'');
+row.innerHTML='<div class="lab"><span class="n">'+NAMES[k]+'</span><span class="amt">'+fmt.format(fee)+'</span></div>'+
+'<div class="track"><div class="fill" style="width:'+Math.max(1,fee/maxFee*100).toFixed(1)+'%"></div></div>';
+box.appendChild(row);
+});
+}
+
+['prov','val'].forEach(id=>{
+$(id).addEventListener('input',calc);
+$(id).addEventListener('change',calc);
+});
+$('val').addEventListener('blur',e=>{
+const v=parseNum(e.target.value);
+if(v>0)e.target.value=new Intl.NumberFormat('en-CA').format(v);
+});
+calc();
+})();
+</script>
+</body>
+</html>
