@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OAS Clawback Calculator (2026) — How Much OAS Will You Lose?</title>
+<meta name="description" content="Estimate your OAS clawback: enter your net income and see the 15% recovery tax, your reduced monthly OAS, and how far you are from the full-clawback ceiling — with correct 2025/2026 thresholds and the payment-year timing most calculators get wrong.">
+<link rel="canonical" href="https://maplecalcs.org/oas-clawback-calculator/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/oas-clawback-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/oas-clawback-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/oas-clawback-calculator/">
+<meta property="og:title" content="OAS Clawback Calculator (2026)">
+<meta property="og:description" content="See your OAS recovery tax, reduced monthly payment, and distance to the full-clawback ceiling.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "OAS Clawback Calculator",
+"url": "https://maplecalcs.org/oas-clawback-calculator/",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"description": "Estimates the Old Age Security recovery tax (clawback) from net world income using the correct threshold for the selected income year and age group, and shows the reduced monthly OAS payment.",
+"offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "What income counts toward the OAS clawback?",
+"acceptedAnswer": { "@type": "Answer", "text": "The clawback uses net world income (line 23400 of your return): employment and self-employment income, CPP, pensions, RRSP and RRIF withdrawals, rental income, interest, capital gains, and grossed-up eligible dividends — a $10,000 eligible dividend counts as $13,800. Even OAS itself is included. TFSA withdrawals do not count, which is why the TFSA is the core clawback-planning tool." }
+},
+{
+"@type": "Question",
+"name": "When does the clawback actually reduce my payments?",
+"acceptedAnswer": { "@type": "Answer", "text": "There is a timing lag most people miss: your 2025 income (threshold $93,454) determines the reduction applied to OAS payments from July 2026 to June 2027, and your 2026 income (threshold $95,323) affects payments from July 2027 to June 2028. The CRA calculates it from your filed tax return and deducts it from the following July's payments." }
+},
+{
+"@type": "Question",
+"name": "Is the threshold per person or per couple?",
+"acceptedAnswer": { "@type": "Answer", "text": "Per person. Each spouse's own net world income is tested against the threshold individually — which is exactly why pension income splitting can rescue OAS: shifting up to 50% of eligible pension income to a lower-income spouse can pull the higher earner back under the threshold." }
+},
+{
+"@type": "Question",
+"name": "How can I reduce the OAS clawback?",
+"acceptedAnswer": { "@type": "Answer", "text": "The established strategies: draw spending money from a TFSA (withdrawals don't count as income); split eligible pension income with a lower-income spouse; melt down RRSPs before OAS starts; time large capital gains for years before 65 or spread them out; and consider deferring OAS — every month of deferral adds 0.6%, up to 36% at 70, and thresholds rise with inflation while you wait." }
+},
+{
+"@type": "Question",
+"name": "Why is the full-clawback ceiling higher for those 75 and over?",
+"acceptedAnswer": { "@type": "Answer", "text": "Since July 2022, seniors 75 and over receive a permanent 10% larger OAS pension. A bigger pension takes more income to claw back completely at 15 cents per dollar, so their ceiling sits higher (about $160,646 for 2026 income) than for ages 65–74 (about $154,708). Both groups start being clawed back at the same minimum threshold." }
+},
+{
+"@type": "Question",
+"name": "Is losing OAS to the clawback always bad?",
+"acceptedAnswer": { "@type": "Answer", "text": "Not necessarily — full clawback means your retirement income exceeds roughly $155,000, which is a sign the savings plan worked. The genuine problem is the band just above the threshold, where forced RRIF withdrawals push income over the line and each extra dollar loses 15 cents of OAS on top of regular tax. That band is where planning pays off most." }
+}
+]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --shock-soft:#F7E9E7;
+--amber:#B07A1E;
+--line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:40px 0 8px}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;max-width:22ch}
+.hero p{margin-top:12px;color:var(--muted);max-width:60ch}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:26px 0;overflow:hidden;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.calc-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:0}
+@media(max-width:720px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:26px;border-right:1px solid var(--line)}
+@media(max-width:720px){.inputs{border-right:none;border-bottom:1px solid var(--line)}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:1.05rem;font-weight:500;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.results{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFA 100%)}
+.stmt-label{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stmt-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);gap:10px}
+.stmt-row .k{font-size:.9rem;color:var(--muted)}
+.stmt-row .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.big{padding:16px 0 6px}
+.big .stmt-label{color:var(--shock)}
+.big .v-big{font-family:var(--mono);font-weight:700;font-size:clamp(2rem,6vw,2.7rem);letter-spacing:-0.02em;line-height:1.1;display:block;margin-top:2px;color:var(--shock)}
+.big .sub{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:999px;font-family:var(--mono);font-weight:700;font-size:.85rem;background:var(--shock-soft);color:var(--shock)}
+.big .sub.ok{background:var(--pine-soft);color:var(--pine)}
+.zone{margin-top:20px}
+.zone-track{position:relative;height:14px;border-radius:999px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.zone-track .z1{background:#CFE3D8;flex:0 0 38%}
+.zone-track .z2{background:#F0DCB8;flex:1}
+.zone-track .z3{background:#EFC7C2;flex:0 0 14%}
+.zone-marker{position:absolute;top:-5px;width:2px;height:24px;background:var(--ink)}
+.zone-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-top:6px}
+.note{margin-top:18px;padding:14px;border-radius:10px;background:var(--pine-soft);font-size:.86rem}
+section.content{padding:34px 0;border-top:1px solid var(--line)}
+section.content h2{font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+section.content p{margin-bottom:12px;max-width:68ch}
+section.content .formula{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:.92rem;overflow-x:auto}
+.example-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.example-table th,.example-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.example-table th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--paper)}
+.example-table td:last-child{font-family:var(--mono);font-weight:700}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.faq summary{padding:16px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--pine);font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 16px;color:var(--muted);max-width:none}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:75ch;margin-bottom:8px}
+.ad-slot{margin:10px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/">MapleCalcs <span>· Canadian money calculators</span></a>
+<span class="lang">EN | <a href="/zh/oas-clawback-calculator/">繁體中文</a></span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>OAS Clawback Calculator</h1>
+<p>Above $95,323 of 2026 net income, every extra dollar costs you 15 cents of Old Age Security. Enter your income to see your recovery tax, your reduced monthly OAS, and how close you are to losing it entirely — using the correct threshold for each income year, and the payment-timing rule most calculators skip.</p>
+</div>
+
+<div class="calc">
+<div class="calc-grid">
+<div class="inputs">
+<div class="field">
+<label for="income">Net world income (line 23400)</label>
+<input type="text" id="income" inputmode="decimal" value="110,000">
+<div class="hint">Includes CPP, pensions, RRIF/RRSP withdrawals, rental income, capital gains, grossed-up dividends. TFSA withdrawals don't count.</div>
+</div>
+<div class="field">
+<label for="year">Income year</label>
+<select id="year">
+<option value="2026" selected>2026 — affects July 2027 – June 2028 payments</option>
+<option value="2025">2025 — affects July 2026 – June 2027 payments</option>
+</select>
+</div>
+<div class="field">
+<label for="ageGroup">Your age in the payment period</label>
+<select id="ageGroup">
+<option value="65" selected>65 – 74</option>
+<option value="75">75 and over (10% higher OAS)</option>
+</select>
+</div>
+<div class="field">
+<label for="oasMo">Your monthly OAS before clawback</label>
+<input type="text" id="oasMo" inputmode="decimal" value="742.31">
+<div class="hint">Defaults to the 2026 maximum for your age group. Lower if you have partial residency years.</div>
+</div>
+</div>
+
+<div class="results">
+<div class="big">
+<span class="stmt-label">Annual clawback (recovery tax)</span>
+<span class="v-big" id="claw">$—</span>
+<span class="sub" id="sub">—</span>
+</div>
+<div class="stmt-row"><span class="k">Monthly OAS reduction</span><span class="v" id="moRed">$—</span></div>
+<div class="stmt-row"><span class="k">OAS you keep, per month</span><span class="v" id="keep">$—</span></div>
+<div class="stmt-row"><span class="k">Share of OAS lost</span><span class="v" id="pctLost">—</span></div>
+<div class="stmt-row"><span class="k" id="headK">Headroom</span><span class="v" id="headV">$—</span></div>
+<div class="zone">
+<div class="zone-track" id="ztrack">
+<div class="z1"></div><div class="z2"></div><div class="z3"></div>
+<div class="zone-marker" id="marker" style="left:50%"></div>
+</div>
+<div class="zone-labels"><span id="zlo">$—</span><span id="zmid">threshold $—</span><span id="zhi">full clawback $—</span></div>
+</div>
+<div class="note" id="noteBox">—</div>
+</div>
+</div>
+</div>
+
+<!-- AdSense slot 1: below calculator -->
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>How the clawback works</h2>
+<p>Formally the <strong>OAS pension recovery tax</strong>, the clawback takes back 15 cents of OAS for every dollar of net world income above the year's minimum threshold, until your OAS reaches zero:</p>
+<div class="formula">clawback = 15% × (net world income − threshold), capped at your annual OAS<br>2026 income: threshold $95,323 · full clawback ≈ $154,708 (65–74) / $160,646 (75+)<br>2025 income: threshold $93,454 · full clawback $152,062 (65–74) / $157,923 (75+)</div>
+<p>Two mechanics catch people out. First, the <strong>timing lag</strong>: the CRA tests <em>last year's</em> income against the threshold and deducts the result from your payments starting the following July — 2026 income shapes your July 2027 – June 2028 cheques. A one-time income spike (selling a rental, a big RRIF withdrawal) haunts you a year later.</p>
+<p>Second, the <strong>income definition</strong>: it's net world income on line 23400, which grosses up eligible Canadian dividends by 38% — $10,000 of dividends counts as $13,800 against the threshold — and includes OAS itself. TFSA withdrawals are invisible to it, which is why the TFSA is the central planning tool around this tax.</p>
+</section>
+
+<section class="content">
+<h2>Worked example: $110,000 of 2026 income, age 68</h2>
+<table class="example-table">
+<tr><th>Line</th><th></th><th>Amount</th></tr>
+<tr><td>Excess over threshold</td><td>$110,000 − $95,323</td><td>$14,677</td></tr>
+<tr><td>Annual recovery tax</td><td>× 15%</td><td>$2,201.55</td></tr>
+<tr><td>Monthly OAS reduction</td><td>÷ 12, from July 2027</td><td>$183.46</td></tr>
+<tr><td>Monthly OAS kept</td><td>$742.31 − $183.46</td><td>$558.85</td></tr>
+<tr><td>Share of OAS lost</td><td>$2,201.55 ÷ $8,907.72</td><td>≈ 25%</td></tr>
+</table>
+<p>This retiree keeps three-quarters of their OAS — the clawback is real but survivable. The expensive zone is the band between the threshold and the ceiling, where every marginal dollar of income effectively carries your tax rate <em>plus 15%</em>. A $10,000 RRIF withdrawal in that band costs $1,500 of OAS on top of income tax — which is precisely the kind of withdrawal worth re-timing or replacing with TFSA money.</p>
+</section>
+
+<!-- AdSense slot 2: mid-content -->
+<div class="ad-slot"></div>
+
+<section class="content faq">
+<h2>OAS clawback questions, answered</h2>
+<details>
+<summary>What income counts toward the clawback?</summary>
+<p>Net world income (line 23400): employment, CPP, pensions, RRSP/RRIF withdrawals, rental income, interest, capital gains, and grossed-up eligible dividends ($10,000 counts as $13,800). OAS itself is included. TFSA withdrawals don't count.</p>
+</details>
+<details>
+<summary>When does the clawback actually reduce my payments?</summary>
+<p>With a one-year lag: 2025 income (threshold $93,454) reduces July 2026 – June 2027 payments; 2026 income (threshold $95,323) reduces July 2027 – June 2028. The CRA calculates it from your filed return.</p>
+</details>
+<details>
+<summary>Is the threshold per person or per couple?</summary>
+<p>Per person — each spouse is tested individually. That's why pension income splitting (up to 50% of eligible pension income) can pull the higher earner back under the line.</p>
+</details>
+<details>
+<summary>How can I reduce it?</summary>
+<p>Spend from a TFSA; split pension income; melt down RRSPs before OAS starts; time or spread large capital gains; defer OAS (+0.6% per month, up to 36% at 70) while thresholds rise with inflation. Form T1213(OAS) can reduce withholding if this year's income has dropped.</p>
+</details>
+<details>
+<summary>Why is the ceiling higher for 75+?</summary>
+<p>Since July 2022, those 75+ get a permanent 10% larger OAS. More pension takes more income to claw back at 15 cents per dollar, so the ceiling is about $160,646 for 2026 income versus $154,708 for ages 65–74.</p>
+</details>
+<details>
+<summary>Is losing OAS always bad?</summary>
+<p>Full clawback means retirement income above roughly $155,000 — the plan worked. The costly zone is just above the threshold, where forced RRIF withdrawals lose 15 cents per dollar on top of tax. That's where planning pays.</p>
+</details>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Disclaimer:</strong> This calculator is for education and planning only and is not tax or financial advice. Thresholds and OAS amounts are indexed and the CRA determines actual recovery tax from your filed return. Confirm your situation with an accountant or licensed advisor before acting.</p>
+<p>© 2026 MapleCalcs · Made in Canada 🍁</p>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});
+const fmt2 = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',minimumFractionDigits:2,maximumFractionDigits:2});
+const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
+
+const TH = {2026:95323, 2025:93454};
+const MAXOAS = {65:742.31, 75:816.54};
+
+let lastAge='65';
+
+function calc(){
+const inc = parseNum($('income').value);
+const yr = $('year').value;
+const ag = $('ageGroup').value;
+
+/* refresh default OAS when age group changes */
+if(ag!==lastAge){ $('oasMo').value = MAXOAS[ag].toFixed(2); lastAge=ag; }
+
+const oasMo = parseNum($('oasMo').value);
+const oasYr = oasMo*12;
+const th = TH[yr];
+const ceil = th + oasYr/0.15;
+
+const excess = Math.max(0, inc-th);
+const claw = Math.min(oasYr, excess*0.15);
+const moRed = claw/12;
+const keep = oasMo - moRed;
+const pct = oasYr>0 ? claw/oasYr*100 : 0;
+
+$('claw').textContent = fmt.format(claw);
+$('moRed').textContent = fmt2.format(moRed);
+$('keep').textContent = fmt2.format(Math.max(0,keep));
+$('pctLost').textContent = pct.toFixed(1)+'%';
+
+const sub=$('sub');
+if(claw<=0){ sub.textContent='below threshold — no clawback'; sub.className='sub ok'; }
+else if(pct>=100){ sub.textContent='full clawback — OAS eliminated'; sub.className='sub'; }
+else { sub.textContent=pct.toFixed(0)+'% of your OAS clawed back'; sub.className='sub'; }
+
+if(inc<th){
+$('headK').textContent='Room before clawback starts';
+$('headV').textContent=fmt.format(th-inc);
+} else if(pct<100){
+$('headK').textContent='Income until OAS fully gone';
+$('headV').textContent=fmt.format(ceil-inc);
+} else {
+$('headK').textContent='Amount over the ceiling';
+$('headV').textContent=fmt.format(inc-ceil);
+}
+
+/* zone bar: range from th-25k to ceil+15k */
+const lo=th-25000, hi=ceil+15000;
+const posPct = Math.min(99, Math.max(1,(inc-lo)/(hi-lo)*100));
+$('marker').style.left=posPct+'%';
+/* zone widths */
+const z1=(th-lo)/(hi-lo)*100, z3=(hi-ceil)/(hi-lo)*100;
+document.querySelector('.z1').style.flex='0 0 '+z1+'%';
+document.querySelector('.z3').style.flex='0 0 '+z3+'%';
+$('zlo').textContent=fmt.format(lo);
+$('zmid').textContent='threshold '+fmt.format(th);
+$('zhi').textContent='full clawback '+fmt.format(Math.round(ceil));
+
+const payPeriod = yr==='2026' ? 'July 2027 – June 2028' : 'July 2026 – June 2027';
+$('noteBox').innerHTML = 'Based on '+yr+' income, this reduction applies to your OAS payments from <strong>'+payPeriod+'</strong>. The CRA calculates it from your filed tax return.';
+}
+
+['income','year','ageGroup','oasMo'].forEach(id=>{
+$(id).addEventListener('input',calc);
+$(id).addEventListener('change',calc);
+});
+$('income').addEventListener('blur',e=>{
+const v=parseNum(e.target.value);
+if(v>0)e.target.value=new Intl.NumberFormat('en-CA').format(v);
+});
+calc();
+})();
+</script>
+</body>
+</html>
