@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MapleCalcs — 加拿大理財計算機|用加拿大銀行的真實算法</title>
+<meta name="description" content="免費加拿大理財計算機:房貸(按揭)續約、CPP 退休金、OAS 回收、遺產認證費。採用加拿大銀行與 CRA 實際使用的算法(半年複利、真實門檻),英文與繁體中文雙語。">
+<link rel="canonical" href="https://maplecalcs.org/zh/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/">
+<meta property="og:title" content="MapleCalcs — 加拿大理財計算機">
+<meta property="og:description" content="免費加拿大理財計算機,採用加拿大銀行的真實算法。英文與繁體中文雙語。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "MapleCalcs 加拿大理財計算機",
+"url": "https://maplecalcs.org/zh/",
+"description": "採用加拿大銀行與 CRA 真實算法的理財計算機,英文與繁體中文雙語。",
+"inLanguage": ["zh-Hant", "en-CA"]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Noto Sans TC',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:52px 0 34px}
+h1{font-size:clamp(1.7rem,5vw,2.5rem);font-weight:900;line-height:1.25}
+.hero p{margin-top:14px;color:var(--muted);max-width:40em;font-size:1.02rem}
+.hero .mono-note{margin-top:18px;font-family:var(--mono);font-size:.8rem;color:var(--pine);font-weight:700;letter-spacing:.04em}
+.tools{padding:10px 0 40px}
+.tools h2{font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-bottom:14px}
+.tool-card{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;text-decoration:none;color:var(--ink);transition:border-color .15s;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.tool-card:hover{border-color:var(--pine)}
+.tool-card h3{font-size:1.2rem;font-weight:900}
+.tool-card p{margin-top:6px;color:var(--muted);font-size:.95rem;max-width:42em}
+.tool-card .go{display:inline-block;margin-top:12px;font-family:var(--mono);font-weight:700;font-size:.85rem;color:var(--pine)}
+.soon{margin-top:22px}
+.soon h2{font-size:.82rem;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+.soon ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.soon li{font-family:var(--mono);font-size:.8rem;font-weight:500;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:999px;padding:6px 14px}
+section.why{padding:34px 0;border-top:1px solid var(--line)}
+section.why h2{font-size:1.3rem;font-weight:900;margin-bottom:12px}
+section.why p{margin-bottom:12px;max-width:44em;color:var(--muted)}
+section.why strong{color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:52em;margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/zh/">MapleCalcs <span>· 加拿大理財計算機</span></a>
+<span class="lang"><a href="/">EN</a> | 繁體中文</span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>加拿大的錢,用加拿大的算法算。</h1>
+<p>網上大多數計算機悄悄用的是美國公式——但加拿大的固定利率房貸依法採用半年複利,CRA 的規則也有自己的門檻。MapleCalcs 的每一個工具都採用加拿大銀行與稅務局實際使用的算法,算出來的數字和你結單上的一致,而且每頁都公開計算公式,讓你自己驗證。</p>
+<div class="mono-note">免費 · 免註冊 · 繁體中文 + ENGLISH</div>
+</div>
+
+<div class="tools">
+<h2>計算機</h2>
+<a class="tool-card" href="/zh/mortgage-renewal-calculator/">
+<h3>房貸續約計算機(按揭續期)</h3>
+<p>續約遇上高利率?立即算出新月供、每月多付多少,以及新利率在整個年期內多付的利息——採用加拿大法定半年複利。</p>
+<span class="go">開啟計算機 →</span>
+</a>
+<div class="soon">
+<h2>即將推出</h2>
+<ul>
+<li>房貸提前解約罰款(IRD)</li>
+<li>CPP 60 vs 65 vs 70 歲</li>
+<li>OAS 回收(Clawback)</li>
+<li>遺產認證費(分省)</li>
+</ul>
+</div>
+</div>
+
+<section class="why">
+<h2>為什麽做這個網站?</h2>
+<p><strong>因為大多數計算機對加拿大是算錯的。</strong>加拿大法律規定固定利率房貸採用半年複利,而不是美國貸款的月複利。多數計算機網站忽略這一點,把你的月供算高。MapleCalcs 每個工具都在頁面上公開計算公式,方法透明,可自行驗證。</p>
+<p><strong>也因為沒有人服務說中文的加拿大人。</strong>房貸續約、什麽時候領 CPP、遺產認證費——這些問題用母語都夠複雜了。本站每個工具都提供繁體中文與英文雙版本。</p>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>免責聲明:</strong>本站所有工具僅供教育與規劃參考,不構成財務、貸款、稅務或法律建議。做出決定前,請向你的銀行、會計師或持牌專業人士核實數字。</p>
+<p>© 2026 MapleCalcs · 加拿大製造 🍁</p>
+</div>
+</footer>
+
+</body>
+</html>
