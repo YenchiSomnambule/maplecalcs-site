@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加拿大老人金 OAS 回收計算機(Clawback)2026|收入多少會被扣?— MapleCalcs</title>
+<meta name="description" content="2026 年淨收入超過 $95,323,每多賺 $1 就被扣回 15¢ 老人金。輸入你的收入,立即算出 OAS 回收稅、扣減後每月實領金額,以及距離全額回收還有多遠——採用正確的 2025/2026 雙年份門檻與大多數計算機忽略的給付時間差規則。">
+<link rel="canonical" href="https://maplecalcs.org/zh/oas-clawback-calculator/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/oas-clawback-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/oas-clawback-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/oas-clawback-calculator/">
+<meta property="og:title" content="加拿大老人金 OAS 回收計算機(Clawback)2026">
+<meta property="og:description" content="算出你的 OAS 回收稅、扣減後每月實領,以及距離全額回收的距離。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "加拿大老人金 OAS 回收計算機(Clawback)",
+"url": "https://maplecalcs.org/zh/oas-clawback-calculator/",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"inLanguage": "zh-Hant",
+"description": "以所選收入年份與年齡組的正確門檻,從全球淨收入估算老人金回收稅(clawback),並顯示扣減後的每月 OAS 實領金額。",
+"offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"inLanguage": "zh-Hant",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "哪些收入會被計入 OAS 回收?",
+"acceptedAnswer": { "@type": "Answer", "text": "以報稅表第 23400 行的「全球淨收入」計算:就業與自僱收入、CPP、退休金、RRSP 和 RRIF 提款、租金收入、利息、資本利得,以及經放大計算的合資格股息——$10,000 的合資格股息會以 $13,800 計入。連 OAS 本身也算在內。TFSA 提款不計入,這正是 TFSA 成為規避回收核心工具的原因。" }
+},
+{
+"@type": "Question",
+"name": "回收什麽時候真正從我的給付中扣?",
+"acceptedAnswer": { "@type": "Answer", "text": "有一個大多數人忽略的時間差:2025 年收入(門檻 $93,454)決定 2026 年 7 月至 2027 年 6 月的 OAS 扣減;2026 年收入(門檻 $95,323)影響 2027 年 7 月至 2028 年 6 月的給付。CRA 依你提交的報稅表計算,從次年 7 月的給付開始扣除。" }
+},
+{
+"@type": "Question",
+"name": "門檻是按個人還是按夫妻計算?",
+"acceptedAnswer": { "@type": "Answer", "text": "按個人。每位配偶的全球淨收入各自與門檻比較——這正是退休金收入分拆(pension income splitting)能救回 OAS 的原因:把最多 50% 的合資格退休金收入轉給低收入配偶,可以把高收入一方拉回門檻以下。" }
+},
+{
+"@type": "Question",
+"name": "怎麽減少 OAS 回收?",
+"acceptedAnswer": { "@type": "Answer", "text": "常用策略:日常開支從 TFSA 提取(不計入收入);與低收入配偶分拆退休金收入;在開始領 OAS 前提早消化 RRSP;把大額資本利得安排在 65 歲前或分年實現;考慮延後領取 OAS——每延後一個月增加 0.6%,70 歲最多 +36%,而且等待期間門檻也隨通脹上調。若今年收入大幅下降,可提交 T1213(OAS) 表格申請減少預扣。" }
+},
+{
+"@type": "Question",
+"name": "為什麽 75 歲以上的全額回收上限更高?",
+"acceptedAnswer": { "@type": "Answer", "text": "自 2022 年 7 月起,75 歲以上長者的 OAS 永久增加 10%。退休金更大,以每元 15¢ 的速度全數收回需要更高的收入,所以上限更高(2026 年收入約 $160,646),65–74 歲則約為 $154,708。兩組開始被回收的最低門檻相同。" }
+},
+{
+"@type": "Question",
+"name": "OAS 被全額回收一定是壞事嗎?",
+"acceptedAnswer": { "@type": "Answer", "text": "不一定——全額回收代表退休收入超過約 $155,000,說明儲蓄計劃成功了。真正昂貴的是門檻之上的那段區間:被迫的 RRIF 提款把收入推過線,每多 $1 除了所得稅還要損失 15¢ 的 OAS。規劃的價值正是在那個區間最大。" }
+}
+]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --shock-soft:#F7E9E7;
+--amber:#B07A1E;
+--line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Noto Sans TC',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:40px 0 8px}
+h1{font-size:clamp(1.6rem,4.5vw,2.35rem);font-weight:900;line-height:1.3}
+.hero p{margin-top:12px;color:var(--muted);max-width:40em}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:26px 0;overflow:hidden;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.calc-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:0}
+@media(max-width:720px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:26px;border-right:1px solid var(--line)}
+@media(max-width:720px){.inputs{border-right:none;border-bottom:1px solid var(--line)}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.82rem;font-weight:700;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:1.05rem;font-weight:500;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.results{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFA 100%)}
+.stmt-label{font-size:.78rem;font-weight:700;letter-spacing:.14em;color:var(--muted)}
+.stmt-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);gap:10px}
+.stmt-row .k{font-size:.9rem;color:var(--muted)}
+.stmt-row .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.big{padding:16px 0 6px}
+.big .stmt-label{color:var(--shock)}
+.big .v-big{font-family:var(--mono);font-weight:700;font-size:clamp(2rem,6vw,2.7rem);letter-spacing:-0.02em;line-height:1.1;display:block;margin-top:2px;color:var(--shock)}
+.big .sub{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:999px;font-family:var(--mono);font-weight:700;font-size:.85rem;background:var(--shock-soft);color:var(--shock)}
+.big .sub.ok{background:var(--pine-soft);color:var(--pine)}
+.zone{margin-top:20px}
+.zone-track{position:relative;height:14px;border-radius:999px;overflow:hidden;display:flex;border:1px solid var(--line)}
+.zone-track .z1{background:#CFE3D8;flex:0 0 38%}
+.zone-track .z2{background:#F0DCB8;flex:1}
+.zone-track .z3{background:#EFC7C2;flex:0 0 14%}
+.zone-marker{position:absolute;top:-5px;width:2px;height:24px;background:var(--ink)}
+.zone-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;color:var(--muted);margin-top:6px}
+.note{margin-top:18px;padding:14px;border-radius:10px;background:var(--pine-soft);font-size:.86rem}
+section.content{padding:34px 0;border-top:1px solid var(--line)}
+section.content h2{font-size:1.3rem;font-weight:900;margin-bottom:14px}
+section.content p{margin-bottom:12px;max-width:44em}
+section.content .formula{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:.88rem;overflow-x:auto}
+.example-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.example-table th,.example-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.example-table th{font-size:.78rem;letter-spacing:.06em;color:var(--muted);background:var(--paper)}
+.example-table td:last-child{font-family:var(--mono);font-weight:700}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.faq summary{padding:16px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--pine);font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 16px;color:var(--muted);max-width:none}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:52em;margin-bottom:8px}
+.ad-slot{margin:10px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/zh/">MapleCalcs <span>· 加拿大理財計算機</span></a>
+<span class="lang"><a href="/oas-clawback-calculator/">EN</a> | 繁體中文</span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>老人金 OAS 回收計算機(Clawback)</h1>
+<p>2026 年淨收入超過 $95,323 之後,每多賺 $1 就被收回 15¢ 的老人金。輸入你的收入,立即看到回收稅金額、扣減後每月實領的 OAS,以及距離全額回收還有多遠——採用每個收入年份的正確門檻,以及大多數計算機忽略的給付時間差規則。</p>
+</div>
+
+<div class="calc">
+<div class="calc-grid">
+<div class="inputs">
+<div class="field">
+<label for="income">全球淨收入(報稅表第 23400 行)</label>
+<input type="text" id="income" inputmode="decimal" value="110,000">
+<div class="hint">包括 CPP、退休金、RRIF/RRSP 提款、租金、資本利得、放大後的股息。TFSA 提款不計入。</div>
+</div>
+<div class="field">
+<label for="year">收入年份</label>
+<select id="year">
+<option value="2026" selected>2026 年收入 — 影響 2027 年 7 月至 2028 年 6 月給付</option>
+<option value="2025">2025 年收入 — 影響 2026 年 7 月至 2027 年 6 月給付</option>
+</select>
+</div>
+<div class="field">
+<label for="ageGroup">給付期間你的年齡</label>
+<select id="ageGroup">
+<option value="65" selected>65 – 74 歲</option>
+<option value="75">75 歲以上(OAS 高 10%)</option>
+</select>
+</div>
+<div class="field">
+<label for="oasMo">回收前你的每月 OAS</label>
+<input type="text" id="oasMo" inputmode="decimal" value="742.31">
+<div class="hint">預設為你年齡組的 2026 年最高額。居住年數不足 40 年者金額較低。</div>
+</div>
+</div>
+
+<div class="results">
+<div class="big">
+<span class="stmt-label">年度回收金額(回收稅)</span>
+<span class="v-big" id="claw">$—</span>
+<span class="sub" id="sub">—</span>
+</div>
+<div class="stmt-row"><span class="k">每月 OAS 扣減</span><span class="v" id="moRed">$—</span></div>
+<div class="stmt-row"><span class="k">每月實領 OAS</span><span class="v" id="keep">$—</span></div>
+<div class="stmt-row"><span class="k">被回收的比例</span><span class="v" id="pctLost">—</span></div>
+<div class="stmt-row"><span class="k" id="headK">餘裕</span><span class="v" id="headV">$—</span></div>
+<div class="zone">
+<div class="zone-track" id="ztrack">
+<div class="z1"></div><div class="z2"></div><div class="z3"></div>
+<div class="zone-marker" id="marker" style="left:50%"></div>
+</div>
+<div class="zone-labels"><span id="zlo">$—</span><span id="zmid">門檻 $—</span><span id="zhi">全額回收 $—</span></div>
+</div>
+<div class="note" id="noteBox">—</div>
+</div>
+</div>
+</div>
+
+<!-- AdSense slot 1: below calculator -->
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>回收機制是怎麽運作的</h2>
+<p>正式名稱是 <strong>OAS 退休金回收稅</strong>(pension recovery tax):全球淨收入超過該年最低門檻的部分,每 $1 收回 15¢ 的老人金,直到你的 OAS 歸零為止:</p>
+<div class="formula">回收金額 = 15% ×(全球淨收入 − 門檻),上限為你的年度 OAS<br>2026 年收入:門檻 $95,323 · 全額回收 ≈ $154,708(65–74)/ $160,646(75+)<br>2025 年收入:門檻 $93,454 · 全額回收 $152,062(65–74)/ $157,923(75+)</div>
+<p>兩個機制最容易讓人中招。第一是<strong>時間差</strong>:CRA 用<em>去年</em>的收入對照門檻,從次年 7 月的給付開始扣——2026 年的收入決定你 2027 年 7 月至 2028 年 6 月的支票。一次性的收入高峰(賣出租屋、大額 RRIF 提款)會在一年後回來找你。</p>
+<p>第二是<strong>收入的定義</strong>:以第 23400 行的全球淨收入計算,合資格加拿大股息會被放大 38%——$10,000 的股息以 $13,800 計入門檻——連 OAS 本身也算收入。TFSA 提款則完全不被看見,這就是 TFSA 成為這項稅務規劃核心工具的原因。</p>
+</section>
+
+<section class="content">
+<h2>實例:2026 年收入 $110,000,68 歲</h2>
+<table class="example-table">
+<tr><th>項目</th><th></th><th>金額</th></tr>
+<tr><td>超過門檻的部分</td><td>$110,000 − $95,323</td><td>$14,677</td></tr>
+<tr><td>年度回收稅</td><td>× 15%</td><td>$2,201.55</td></tr>
+<tr><td>每月 OAS 扣減</td><td>÷ 12,自 2027 年 7 月起</td><td>$183.46</td></tr>
+<tr><td>每月實領 OAS</td><td>$742.31 − $183.46</td><td>$558.85</td></tr>
+<tr><td>被回收的比例</td><td>$2,201.55 ÷ $8,907.72</td><td>≈ 25%</td></tr>
+</table>
+<p>這位退休者保住了四分之三的老人金——回收是真的,但撐得住。真正昂貴的是門檻與上限之間的那段區間:在那裡每多 $1 收入,實際負擔是你的稅率<em>再加 15%</em>。在這個區間提 $10,000 的 RRIF,除了所得稅還要賠上 $1,500 的 OAS——這正是最值得改期、或改用 TFSA 資金取代的那種提款。</p>
+</section>
+
+<!-- AdSense slot 2: mid-content -->
+<div class="ad-slot"></div>
+
+<section class="content faq">
+<h2>OAS 回收常見問題</h2>
+<details>
+<summary>哪些收入會被計入?</summary>
+<p>第 23400 行的全球淨收入:就業、CPP、退休金、RRSP/RRIF 提款、租金、利息、資本利得、放大後的合資格股息($10,000 以 $13,800 計)。OAS 本身也算。TFSA 提款不計入。</p>
+</details>
+<details>
+<summary>回收什麽時候真正扣到給付?</summary>
+<p>延後一年:2025 年收入(門檻 $93,454)扣 2026 年 7 月至 2027 年 6 月的給付;2026 年收入(門檻 $95,323)扣 2027 年 7 月至 2028 年 6 月。CRA 依報稅表計算。</p>
+</details>
+<details>
+<summary>門檻按個人還是夫妻算?</summary>
+<p>按個人——每位配偶各自測試。所以退休金收入分拆(最多 50% 合資格退休金收入)能把高收入一方拉回線下。</p>
+</details>
+<details>
+<summary>怎麽減少回收?</summary>
+<p>開支改用 TFSA;分拆退休金收入;領 OAS 前先消化 RRSP;大額資本利得改期或分年;延後領 OAS(每月 +0.6%,70 歲最多 +36%),等待期間門檻還會隨通脹上調。今年收入大跌可交 T1213(OAS) 申請減少預扣。</p>
+</details>
+<details>
+<summary>為什麽 75 歲以上的上限更高?</summary>
+<p>2022 年 7 月起 75 歲以上 OAS 永久 +10%。退休金更大,以每元 15¢ 收回需要更高收入——2026 年收入的上限約 $160,646,65–74 歲約 $154,708。</p>
+</details>
+<details>
+<summary>被全額回收一定是壞事嗎?</summary>
+<p>全額回收代表退休收入超過約 $155,000——計劃成功了。昂貴的是門檻之上那段:被迫的 RRIF 提款每 $1 損失 15¢ 外加稅。規劃價值在那裡最大。</p>
+</details>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>免責聲明:</strong>本計算機僅供教育與規劃參考,不構成稅務或財務建議。門檻與 OAS 金額隨指數調整,實際回收稅由 CRA 依你提交的報稅表計算。採取行動前請諮詢會計師或持牌顧問。</p>
+<p>© 2026 MapleCalcs · 加拿大製造 🍁</p>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});
+const fmt2 = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',minimumFractionDigits:2,maximumFractionDigits:2});
+const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
+
+const TH = {2026:95323, 2025:93454};
+const MAXOAS = {65:742.31, 75:816.54};
+let lastAge='65';
+
+function calc(){
+const inc = parseNum($('income').value);
+const yr = $('year').value;
+const ag = $('ageGroup').value;
+if(ag!==lastAge){ $('oasMo').value = MAXOAS[ag].toFixed(2); lastAge=ag; }
+
+const oasMo = parseNum($('oasMo').value);
+const oasYr = oasMo*12;
+const th = TH[yr];
+const ceil = th + oasYr/0.15;
+
+const excess = Math.max(0, inc-th);
+const claw = Math.min(oasYr, excess*0.15);
+const moRed = claw/12;
+const keep = oasMo - moRed;
+const pct = oasYr>0 ? claw/oasYr*100 : 0;
+
+$('claw').textContent = fmt.format(claw);
+$('moRed').textContent = fmt2.format(moRed);
+$('keep').textContent = fmt2.format(Math.max(0,keep));
+$('pctLost').textContent = pct.toFixed(1)+'%';
+
+const sub=$('sub');
+if(claw<=0){ sub.textContent='低於門檻——不被回收'; sub.className='sub ok'; }
+else if(pct>=100){ sub.textContent='全額回收——OAS 歸零'; sub.className='sub'; }
+else { sub.textContent='被回收 '+pct.toFixed(0)+'%'; sub.className='sub'; }
+
+if(inc<th){
+$('headK').textContent='距離開始被回收的空間';
+$('headV').textContent=fmt.format(th-inc);
+} else if(pct<100){
+$('headK').textContent='距離 OAS 完全歸零';
+$('headV').textContent=fmt.format(ceil-inc);
+} else {
+$('headK').textContent='超過上限的金額';
+$('headV').textContent=fmt.format(inc-ceil);
+}
+
+const lo=th-25000, hi=ceil+15000;
+const posPct = Math.min(99, Math.max(1,(inc-lo)/(hi-lo)*100));
+$('marker').style.left=posPct+'%';
+const z1=(th-lo)/(hi-lo)*100, z3=(hi-ceil)/(hi-lo)*100;
+document.querySelector('.z1').style.flex='0 0 '+z1+'%';
+document.querySelector('.z3').style.flex='0 0 '+z3+'%';
+$('zlo').textContent=fmt.format(lo);
+$('zmid').textContent='門檻 '+fmt.format(th);
+$('zhi').textContent='全額回收 '+fmt.format(Math.round(ceil));
+
+const payPeriod = yr==='2026' ? '2027 年 7 月 – 2028 年 6 月' : '2026 年 7 月 – 2027 年 6 月';
+$('noteBox').innerHTML = '以 '+yr+' 年收入計算,此扣減適用於 <strong>'+payPeriod+'</strong> 的 OAS 給付。CRA 依你提交的報稅表計算。';
+}
+
+['income','year','ageGroup','oasMo'].forEach(id=>{
+$(id).addEventListener('input',calc);
+$(id).addEventListener('change',calc);
+});
+$('income').addEventListener('blur',e=>{
+const v=parseNum(e.target.value);
+if(v>0)e.target.value=new Intl.NumberFormat('en-CA').format(v);
+});
+calc();
+})();
+</script>
+</body>
+</html>
