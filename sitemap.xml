@@ -30,4 +30,24 @@
 <xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/mortgage-penalty-calculator/"/>
 <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/mortgage-penalty-calculator/"/>
 </url>
+<url>
+<loc>https://maplecalcs.org/cpp-breakeven-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/cpp-breakeven-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/cpp-breakeven-calculator/"/>
+</url>
+<url>
+<loc>https://maplecalcs.org/zh/cpp-breakeven-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/cpp-breakeven-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/cpp-breakeven-calculator/"/>
+</url>
+<url>
+<loc>https://maplecalcs.org/oas-clawback-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/oas-clawback-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/oas-clawback-calculator/"/>
+</url>
+<url>
+<loc>https://maplecalcs.org/zh/oas-clawback-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/oas-clawback-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/oas-clawback-calculator/"/>
+</url>
 </urlset>
