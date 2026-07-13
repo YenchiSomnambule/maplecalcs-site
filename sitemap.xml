@@ -20,4 +20,14 @@
 <xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/mortgage-renewal-calculator/"/>
 <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/mortgage-renewal-calculator/"/>
 </url>
+<url>
+<loc>https://maplecalcs.org/mortgage-penalty-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/mortgage-penalty-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/mortgage-penalty-calculator/"/>
+</url>
+<url>
+<loc>https://maplecalcs.org/zh/mortgage-penalty-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/mortgage-penalty-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/mortgage-penalty-calculator/"/>
+</url>
 </urlset>
