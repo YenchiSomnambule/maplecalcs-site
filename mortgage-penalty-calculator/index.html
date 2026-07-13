@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Penalty Calculator Canada (IRD) — Cost to Break Your Mortgage</title>
+<meta name="description" content="Estimate the penalty to break your Canadian mortgage: 3 months' interest vs the Interest Rate Differential (IRD), including the posted-rate method big banks use. See which one your lender will charge.">
+<link rel="canonical" href="https://maplecalcs.org/mortgage-penalty-calculator/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/mortgage-penalty-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/mortgage-penalty-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/mortgage-penalty-calculator/">
+<meta property="og:title" content="Mortgage Penalty Calculator Canada (IRD)">
+<meta property="og:description" content="Estimate the cost to break your mortgage: 3 months' interest vs IRD, including the big-bank posted-rate method.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "Mortgage Penalty Calculator Canada (IRD)",
+"url": "https://maplecalcs.org/mortgage-penalty-calculator/",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"description": "Estimates the prepayment penalty for breaking a Canadian mortgage: three months' interest versus the Interest Rate Differential (IRD), including the posted-rate method used by major banks.",
+"offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "How is a mortgage penalty calculated in Canada?",
+"acceptedAnswer": { "@type": "Answer", "text": "For a closed fixed-rate mortgage, lenders charge the greater of three months' interest or the Interest Rate Differential (IRD). For a closed variable-rate mortgage, the penalty is typically three months' interest only. Three months' interest is approximately your balance × your annual rate ÷ 4. IRD is approximately your balance × (your rate − a comparison rate) × the months remaining in your term ÷ 12." }
+},
+{
+"@type": "Question",
+"name": "Why is my bank's penalty quote so much higher than a simple IRD estimate?",
+"acceptedAnswer": { "@type": "Answer", "text": "Canada's major banks typically use a posted-rate method: they take today's posted rate for a term similar to your remaining time and subtract the discount you originally received off the posted rate. Because original discounts are often 1.5–2 percentage points, this produces a much lower comparison rate and therefore a much larger IRD than comparing against actual market rates. Many credit unions and monoline lenders compare against their actual current rates instead, which usually produces smaller penalties." }
+},
+{
+"@type": "Question",
+"name": "Is it worth breaking my mortgage to get a lower rate?",
+"acceptedAnswer": { "@type": "Answer", "text": "Compare the total penalty plus fees against the interest you would save at the lower rate over your remaining term. As a rough test: interest savings ≈ balance × rate reduction × remaining months ÷ 12. If savings exceed the penalty with a comfortable margin, breaking may make sense. Also ask your lender about a blend-and-extend, which mixes your old and new rates without triggering the full penalty." }
+},
+{
+"@type": "Question",
+"name": "Can I reduce or avoid the penalty?",
+"acceptedAnswer": { "@type": "Answer", "text": "Common strategies: use your annual prepayment privilege (often 10–20% of the original principal) right before breaking to shrink the balance the penalty is calculated on; port the mortgage to a new property instead of breaking it; wait until closer to renewal, since IRD shrinks as the remaining term shortens; or time the break for your renewal date, when no penalty applies." }
+},
+{
+"@type": "Question",
+"name": "Is a mortgage penalty tax-deductible?",
+"acceptedAnswer": { "@type": "Answer", "text": "For a principal residence, generally no. For a rental or investment property, a prepayment penalty may be deductible or added to the cost base depending on circumstances — confirm with an accountant before assuming any treatment." }
+},
+{
+"@type": "Question",
+"name": "How do I get my exact penalty amount?",
+"acceptedAnswer": { "@type": "Answer", "text": "Federally regulated lenders must provide penalty calculators and explain their method. Check your lender's online banking or annual statement for your exact balance and rate, then request a written penalty quote — lenders will provide the precise figure, and quotes are typically honoured for a limited window. This calculator gives you a solid estimate so you can sanity-check what they quote." }
+}
+]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --shock-soft:#F7E9E7;
+--line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:40px 0 8px}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;max-width:22ch}
+.hero p{margin-top:12px;color:var(--muted);max-width:60ch}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:26px 0;overflow:hidden;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:720px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:26px;border-right:1px solid var(--line)}
+@media(max-width:720px){.inputs{border-right:none;border-bottom:1px solid var(--line)}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:1.05rem;font-weight:500;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.results{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFA 100%)}
+.stmt-label{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stmt-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line);gap:10px}
+.stmt-row .k{font-size:.9rem;color:var(--muted)}
+.stmt-row .v{font-family:var(--mono);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.big{padding:16px 0 6px}
+.big .stmt-label{color:var(--shock)}
+.big .v-big{font-family:var(--mono);font-weight:700;font-size:clamp(2rem,6vw,2.7rem);letter-spacing:-0.02em;line-height:1.1;display:block;margin-top:2px;color:var(--shock)}
+.big .which{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:999px;font-family:var(--mono);font-weight:700;font-size:.85rem;background:var(--shock-soft);color:var(--shock)}
+.bars{margin-top:20px}
+.bar-row{margin-bottom:14px}
+.bar-row .bar-label{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:5px}
+.bar-row .bar-label .n{color:var(--muted)}
+.bar-row .bar-label .amt{font-family:var(--mono);font-weight:700}
+.bar-track{height:12px;background:var(--paper);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:#9AAAA0;transition:width .25s}
+.bar-row.applies .bar-fill{background:var(--shock)}
+.bar-row.applies .amt{color:var(--shock)}
+.note{margin-top:18px;padding:14px;border-radius:10px;background:var(--pine-soft);font-size:.88rem}
+section.content{padding:34px 0;border-top:1px solid var(--line)}
+section.content h2{font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+section.content p{margin-bottom:12px;max-width:68ch}
+section.content .formula{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:.92rem;overflow-x:auto}
+.example-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.example-table th,.example-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.example-table th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--paper)}
+.example-table td:last-child{font-family:var(--mono);font-weight:700}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.faq summary{padding:16px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--pine);font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 16px;color:var(--muted);max-width:none}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:75ch;margin-bottom:8px}
+.ad-slot{margin:10px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/">MapleCalcs <span>· Canadian money calculators</span></a>
+<span class="lang">EN | <a href="/zh/mortgage-penalty-calculator/">繁體中文</a></span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>Mortgage Penalty Calculator (IRD)</h1>
+<p>Thinking of breaking your mortgage? Your lender will charge the <strong>greater</strong> of three months' interest or the Interest Rate Differential (IRD) — and how they calculate IRD can change the number by thousands. Estimate both, including the posted-rate method the big banks use.</p>
+</div>
+
+<div class="calc">
+<div class="calc-grid">
+<div class="inputs">
+<div class="field">
+<label for="balance">Current mortgage balance</label>
+<input type="text" id="balance" inputmode="decimal" value="400,000">
+</div>
+<div class="two-col">
+<div class="field">
+<label for="rate">Your rate (%)</label>
+<input type="text" id="rate" inputmode="decimal" value="5.50">
+</div>
+<div class="field">
+<label for="rtype">Rate type</label>
+<select id="rtype">
+<option value="fixed" selected>Fixed (closed)</option>
+<option value="variable">Variable (closed)</option>
+</select>
+</div>
+</div>
+<div class="two-col">
+<div class="field">
+<label for="remYears">Term left: years</label>
+<select id="remYears"></select>
+</div>
+<div class="field">
+<label for="remMonths">+ months</label>
+<select id="remMonths"></select>
+</div>
+</div>
+<div class="field" id="methodField">
+<label for="method">How your lender compares rates</label>
+<select id="method">
+<option value="market" selected>Against their current rates (most monolines &amp; credit unions)</option>
+<option value="posted">Posted-rate method (RBC, TD, BMO, Scotiabank, CIBC)</option>
+</select>
+</div>
+<div class="field" id="marketField">
+<label for="cmpRate">Lender's current rate for a similar term (%)</label>
+<input type="text" id="cmpRate" inputmode="decimal" value="4.20">
+<div class="hint">Their advertised rate for a term closest to your remaining time.</div>
+</div>
+<div class="two-col" id="postedFields" style="display:none">
+<div class="field">
+<label for="postedRate">Posted rate, similar term (%)</label>
+<input type="text" id="postedRate" inputmode="decimal" value="5.89">
+</div>
+<div class="field">
+<label for="discount">Your original discount (%)</label>
+<input type="text" id="discount" inputmode="decimal" value="1.99">
+</div>
+</div>
+</div>
+
+<div class="results">
+<div class="big">
+<span class="stmt-label">Estimated penalty</span>
+<span class="v-big" id="penalty">$—</span>
+<span class="which" id="which">—</span>
+</div>
+<div class="bars">
+<div class="bar-row" id="rowThree">
+<div class="bar-label"><span class="n">3 months' interest</span><span class="amt" id="threeAmt">$—</span></div>
+<div class="bar-track"><div class="bar-fill" id="threeBar" style="width:0%"></div></div>
+</div>
+<div class="bar-row" id="rowIrd">
+<div class="bar-label"><span class="n">Interest Rate Differential (IRD)</span><span class="amt" id="irdAmt">$—</span></div>
+<div class="bar-track"><div class="bar-fill" id="irdBar" style="width:0%"></div></div>
+</div>
+</div>
+<div class="stmt-row"><span class="k">Comparison rate used</span><span class="v" id="cmpUsed">—</span></div>
+<div class="stmt-row"><span class="k">Penalty as % of balance</span><span class="v" id="pctBal">—</span></div>
+<div class="note" id="noteBox">Closed fixed-rate mortgages are charged the <strong>greater</strong> of the two amounts above.</div>
+</div>
+</div>
+</div>
+
+<!-- AdSense slot 1: below calculator -->
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>How the penalty is calculated</h2>
+<p>For a <strong>closed fixed-rate</strong> mortgage, Canadian lenders charge the greater of two amounts. For a <strong>closed variable-rate</strong> mortgage, the penalty is typically three months' interest only:</p>
+<div class="formula">3 months' interest ≈ balance × your rate ⁄ 4<br>IRD ≈ balance × (your rate − comparison rate) × months remaining ⁄ 12<br>penalty (fixed, closed) = max(3 months' interest, IRD)</div>
+<p>Everything hinges on the <strong>comparison rate</strong>. Lenders that compare against their actual current rate for your remaining term produce moderate penalties. The major banks instead use a <strong>posted-rate method</strong>: today's posted rate for a similar term <em>minus the discount you originally negotiated</em>. Because original discounts often run 1.5–2 points, the comparison rate collapses — and the IRD balloons. Same mortgage, radically different penalty.</p>
+<p>These are close estimates, not quotes. Lenders apply day-count conventions, use your exact balance on the discharge date, and round differently — but this math will land within a few percent of a written quote, which is what you need to decide whether breaking is even worth investigating.</p>
+</section>
+
+<section class="content">
+<h2>Worked example: same mortgage, two methods</h2>
+<p>A homeowner with $400,000 remaining at 5.50% and 30 months left in the term wants out. The lender's current 2–3 year rate is 4.20%; the posted rate is 5.89% and the original discount was 1.99%:</p>
+<table class="example-table">
+<tr><th>Line</th><th></th><th>Amount</th></tr>
+<tr><td>3 months' interest</td><td>$400,000 × 5.50% ÷ 4</td><td>$5,500</td></tr>
+<tr><td>IRD — market comparison</td><td>vs 4.20%, 30 months</td><td>$13,000</td></tr>
+<tr><td>IRD — posted-rate method</td><td>vs 5.89% − 1.99% = 3.90%</td><td>$16,000</td></tr>
+<tr><td>Penalty range</td><td>greater of 3-month vs IRD</td><td>$13,000 – $16,000</td></tr>
+</table>
+<p>The method alone moves this penalty by $3,000. This is why the single most valuable phone call before breaking a mortgage is asking your lender <em>which comparison rate they use</em> — and why homeowners who locked in low 2021 rates often face only the three-month minimum, since today's comparison rates sit <em>above</em> their contract rate and the IRD falls to zero.</p>
+</section>
+
+<!-- AdSense slot 2: mid-content -->
+<div class="ad-slot"></div>
+
+<section class="content faq">
+<h2>Breaking-your-mortgage questions, answered</h2>
+<details>
+<summary>How is a mortgage penalty calculated in Canada?</summary>
+<p>Closed fixed-rate: the greater of three months' interest or the IRD. Closed variable-rate: typically three months' interest only. Three months' interest ≈ balance × rate ÷ 4; IRD ≈ balance × rate difference × months remaining ÷ 12.</p>
+</details>
+<details>
+<summary>Why is my bank's quote so much higher than a simple estimate?</summary>
+<p>Major banks use the posted-rate method: today's posted rate for your remaining term minus your original discount. Discounts of 1.5–2 points crush the comparison rate and inflate the IRD. Monolines and many credit unions compare against actual current rates, which yields smaller penalties.</p>
+</details>
+<details>
+<summary>Is it worth breaking my mortgage for a lower rate?</summary>
+<p>Compare penalty + fees against interest saved: savings ≈ balance × rate reduction × remaining months ÷ 12. Break only if savings clear the penalty with margin. Also ask about blend-and-extend, which mixes old and new rates without the full penalty.</p>
+</details>
+<details>
+<summary>Can I reduce or avoid the penalty?</summary>
+<p>Use your annual prepayment privilege (often 10–20% of original principal) just before breaking to shrink the balance; port the mortgage to your next property; wait closer to renewal since IRD shrinks with the remaining term; or break exactly at renewal, when no penalty applies.</p>
+</details>
+<details>
+<summary>Is the penalty tax-deductible?</summary>
+<p>For a principal residence, generally no. For rental or investment property it may be deductible or added to the cost base depending on circumstances — confirm with an accountant.</p>
+</details>
+<details>
+<summary>How do I get my exact number?</summary>
+<p>Federally regulated lenders must provide penalty calculators and explain their method. Pull your exact balance and rate from online banking, then request a written penalty quote. Use this page to sanity-check what they tell you.</p>
+</details>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Disclaimer:</strong> This calculator provides estimates for education and planning only and is not financial, lending, or legal advice. Actual penalties depend on your contract, your lender's exact method, day counts, and your balance on the discharge date. Always request a written quote from your lender before making decisions.</p>
+<p>© 2026 MapleCalcs · Made in Canada 🍁</p>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});
+const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
+
+/* populate remaining-term selects */
+const ySel=$('remYears'), mSel=$('remMonths');
+for(let y=0;y<=9;y++){const o=document.createElement('option');o.value=y;o.textContent=y+' yr';if(y===2)o.selected=true;ySel.appendChild(o);}
+for(let m=0;m<=11;m++){const o=document.createElement('option');o.value=m;o.textContent=m+' mo';if(m===6)o.selected=true;mSel.appendChild(o);}
+
+function toggleFields(){
+const isFixed = $('rtype').value==='fixed';
+const isPosted = $('method').value==='posted';
+$('methodField').style.display = isFixed?'':'none';
+$('marketField').style.display = (isFixed && !isPosted)?'':'none';
+$('postedFields').style.display = (isFixed && isPosted)?'grid':'none';
+$('rowIrd').style.display = isFixed?'':'none';
+}
+
+function calc(){
+toggleFields();
+const B = parseNum($('balance').value);
+const r = parseNum($('rate').value)/100;
+const mos = parseInt($('remYears').value,10)*12 + parseInt($('remMonths').value,10);
+const isFixed = $('rtype').value==='fixed';
+const isPosted = $('method').value==='posted';
+if(B<=0){return;}
+
+const three = B*r/4;
+
+let cmp, ird=0;
+if(isFixed){
+cmp = isPosted
+? parseNum($('postedRate').value)/100 - parseNum($('discount').value)/100
+: parseNum($('cmpRate').value)/100;
+ird = Math.max(0, B*(r-cmp)*mos/12);
+}
+
+const pen = isFixed ? Math.max(three,ird) : three;
+
+$('penalty').textContent = fmt.format(pen);
+$('threeAmt').textContent = fmt.format(three);
+$('irdAmt').textContent = fmt.format(ird);
+$('cmpUsed').textContent = isFixed ? (cmp*100).toFixed(2)+'%' : 'n/a (variable)';
+$('pctBal').textContent = (pen/B*100).toFixed(2)+'%';
+
+const maxV = Math.max(three,ird,1);
+$('threeBar').style.width = (three/maxV*100).toFixed(1)+'%';
+$('irdBar').style.width = (ird/maxV*100).toFixed(1)+'%';
+$('rowThree').classList.toggle('applies', !isFixed || three>=ird);
+$('rowIrd').classList.toggle('applies', isFixed && ird>three);
+
+$('which').textContent = !isFixed ? '3 months’ interest (variable)' :
+(ird>three ? 'IRD applies (greater of the two)' : '3 months’ interest applies');
+$('noteBox').innerHTML = isFixed
+? 'Closed fixed-rate mortgages are charged the <strong>greater</strong> of the two amounts above.'
+: 'Closed variable-rate mortgages are typically charged <strong>three months’ interest</strong> only.';
+}
+
+['balance','rate','rtype','remYears','remMonths','method','cmpRate','postedRate','discount'].forEach(id=>{
+$(id).addEventListener('input',calc);
+$(id).addEventListener('change',calc);
+});
+$('balance').addEventListener('blur',e=>{
+const v=parseNum(e.target.value);
+if(v>0)e.target.value=new Intl.NumberFormat('en-CA').format(v);
+});
+
+calc();
+})();
+</script>
+</body>
+</html>
