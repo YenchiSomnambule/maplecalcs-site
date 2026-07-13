@@ -50,4 +50,14 @@
 <xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/oas-clawback-calculator/"/>
 <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/oas-clawback-calculator/"/>
 </url>
+<url>
+<loc>https://maplecalcs.org/probate-fees-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/probate-fees-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/probate-fees-calculator/"/>
+</url>
+<url>
+<loc>https://maplecalcs.org/zh/probate-fees-calculator/</loc>
+<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/probate-fees-calculator/"/>
+<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/probate-fees-calculator/"/>
+</url>
 </urlset>
