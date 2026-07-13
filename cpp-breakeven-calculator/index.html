@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPP Breakeven Calculator — Take CPP at 60, 65 or 70? (2026)</title>
+<meta name="description" content="Should you take CPP at 60, 65, or 70? Enter your estimated pension and life expectancy to see lifetime totals for all three start ages, the exact breakeven ages, and which choice pays the most — using 2026 CPP rules.">
+<link rel="canonical" href="https://maplecalcs.org/cpp-breakeven-calculator/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/cpp-breakeven-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/cpp-breakeven-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/cpp-breakeven-calculator/">
+<meta property="og:title" content="CPP Breakeven Calculator — 60 vs 65 vs 70">
+<meta property="og:description" content="See lifetime CPP totals for starting at 60, 65, and 70, plus the exact breakeven ages, using 2026 rules.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebApplication",
+"name": "CPP Breakeven Calculator (60 vs 65 vs 70)",
+"url": "https://maplecalcs.org/cpp-breakeven-calculator/",
+"applicationCategory": "FinanceApplication",
+"operatingSystem": "Web",
+"description": "Compares lifetime CPP retirement pension totals for starting at age 60, 65, or 70 using the official 0.6% monthly reduction and 0.7% monthly increase, and shows the breakeven ages between each choice.",
+"offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "How much is CPP reduced if I take it at 60?",
+"acceptedAnswer": { "@type": "Answer", "text": "Your pension is permanently reduced by 0.6% for every month before your 65th birthday — a maximum reduction of 36% if you start at exactly 60, leaving you with 64% of your age-65 amount. On the 2026 maximum of $1,507.65, that means about $964.90 per month; on the average new pension of $925.35, about $592.22." }
+},
+{
+"@type": "Question",
+"name": "How much does CPP increase if I wait until 70?",
+"acceptedAnswer": { "@type": "Answer", "text": "Your pension is permanently increased by 0.7% for every month you delay past 65 — a maximum increase of 42% at age 70, or 142% of your age-65 amount. There is no benefit to waiting past 70. On the 2026 maximum, that is about $2,140.86 per month; on the average, about $1,314.00." }
+},
+{
+"@type": "Question",
+"name": "What are the CPP breakeven ages?",
+"acceptedAnswer": { "@type": "Answer", "text": "In simple cumulative terms: starting at 65 overtakes starting at 60 at about age 73.9; starting at 70 overtakes 65 at about age 81.9; and 70 overtakes 60 at about age 78.2. These crossover ages are the same regardless of your pension amount, because the early-reduction and late-increase percentages apply proportionally to everyone." }
+},
+{
+"@type": "Question",
+"name": "When does taking CPP early make sense?",
+"acceptedAnswer": { "@type": "Answer", "text": "Common reasons: you need the income now; your health or family history suggests a shorter life expectancy; or you expect to qualify for the Guaranteed Income Supplement (GIS) later, since a larger CPP can reduce GIS. Taking CPP early while still working also triggers contributions toward post-retirement benefits." }
+},
+{
+"@type": "Question",
+"name": "When does delaying CPP make sense?",
+"acceptedAnswer": { "@type": "Answer", "text": "Delaying suits people in good health with longevity in their family, those still earning employment income at 65, and those who value a larger inflation-indexed, government-guaranteed income for life. CPP is indexed to CPI, so the higher amount you lock in by waiting keeps its purchasing power." }
+},
+{
+"@type": "Question",
+"name": "Can I change my mind after starting CPP?",
+"acceptedAnswer": { "@type": "Answer", "text": "You can cancel your CPP retirement pension within 12 months of starting it, but you must repay everything you received. After 12 months the decision is permanent. This is why running the numbers before you apply matters — the start-age decision is one of the largest irreversible financial choices in retirement." }
+}
+]
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --shock-soft:#F7E9E7;
+--line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:40px 0 8px}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;max-width:22ch}
+.hero p{margin-top:12px;color:var(--muted);max-width:60ch}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:26px 0;overflow:hidden;box-shadow:0 1px 3px rgba(19,32,27,.05)}
+.calc-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:0}
+@media(max-width:720px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:26px;border-right:1px solid var(--line)}
+@media(max-width:720px){.inputs{border-right:none;border-bottom:1px solid var(--line)}}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:1.05rem;font-weight:500;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--pine);outline-offset:1px;border-color:var(--pine)}
+.field .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.results{padding:26px;background:linear-gradient(180deg,#FFFFFF 0%,#FBFCFA 100%)}
+.stmt-label{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+.scenario{display:flex;justify-content:space-between;align-items:center;padding:13px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;gap:10px}
+.scenario .age{font-weight:800;font-size:1rem;min-width:74px}
+.scenario .mo{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.scenario .tot{font-family:var(--mono);font-weight:700;font-size:1.05rem;white-space:nowrap}
+.scenario.win{border-color:var(--pine);background:var(--pine-soft)}
+.scenario.win .tot{color:var(--pine)}
+.scenario .badge{display:none;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.06em;background:var(--pine);color:#fff;border-radius:999px;padding:3px 9px}
+.scenario.win .badge{display:inline-block}
+.be{margin-top:14px;padding:14px;border-radius:10px;background:var(--paper);border:1px dashed var(--line);font-size:.86rem;color:var(--muted)}
+.be strong{font-family:var(--mono);color:var(--ink)}
+.chart-box{padding:22px 26px 26px;border-top:1px solid var(--line)}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chart-head h2{font-size:1rem;font-weight:700}
+.legend{display:flex;gap:16px;font-size:.78rem;color:var(--muted);font-family:var(--mono)}
+.legend i{display:inline-block;width:18px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+canvas{width:100%;height:auto;display:block}
+section.content{padding:34px 0;border-top:1px solid var(--line)}
+section.content h2{font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px}
+section.content p{margin-bottom:12px;max-width:68ch}
+section.content .formula{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:.92rem;overflow-x:auto}
+.example-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.example-table th,.example-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.example-table th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--paper)}
+.example-table td:last-child{font-family:var(--mono);font-weight:700}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+.faq summary{padding:16px 18px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--pine);font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 18px 16px;color:var(--muted);max-width:none}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{max-width:75ch;margin-bottom:8px}
+.ad-slot{margin:10px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap topbar">
+<a class="brand" href="/">MapleCalcs <span>· Canadian money calculators</span></a>
+<span class="lang">EN | <a href="/zh/cpp-breakeven-calculator/">繁體中文</a></span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<h1>CPP Breakeven Calculator: 60 vs 65 vs 70</h1>
+<p>Take CPP early and collect longer, or wait and collect more? Enter your estimated pension and see lifetime totals for all three start ages, the exact crossover ages, and which choice wins for <em>your</em> life expectancy — using the 2026 rules: −0.6% per month before 65, +0.7% per month after.</p>
+</div>
+
+<div class="calc">
+<div class="calc-grid">
+<div class="inputs">
+<div class="field">
+<label for="base">Your estimated monthly CPP at 65</label>
+<input type="text" id="base" inputmode="decimal" value="925.35">
+<div class="hint">From your My Service Canada Account statement. 2026 average: $925.35 · maximum: $1,507.65.</div>
+</div>
+<div class="field">
+<label for="lifeExp">Plan to age (life expectancy)</label>
+<select id="lifeExp"></select>
+<div class="hint">A 65-year-old Canadian today lives to roughly 85 on average — many live well past 90.</div>
+</div>
+</div>
+
+<div class="results">
+<span class="stmt-label">Lifetime total by start age</span>
+<div class="scenario" id="s60">
+<span class="age">Start 60</span>
+<span class="mo" id="mo60">$—/mo</span>
+<span class="tot" id="tot60">$—</span>
+<span class="badge">BEST</span>
+</div>
+<div class="scenario" id="s65">
+<span class="age">Start 65</span>
+<span class="mo" id="mo65">$—/mo</span>
+<span class="tot" id="tot65">$—</span>
+<span class="badge">BEST</span>
+</div>
+<div class="scenario" id="s70">
+<span class="age">Start 70</span>
+<span class="mo" id="mo70">$—/mo</span>
+<span class="tot" id="tot70">$—</span>
+<span class="badge">BEST</span>
+</div>
+<div class="be">Breakeven ages: 65 overtakes 60 at <strong>73.9</strong> · 70 overtakes 65 at <strong>81.9</strong> · 70 overtakes 60 at <strong>78.2</strong> — these crossovers are the same for everyone, whatever your pension amount.</div>
+</div>
+</div>
+
+<div class="chart-box">
+<div class="chart-head">
+<h2>Cumulative CPP received, by start age</h2>
+<div class="legend">
+<span><i style="background:#9AAAA0"></i>start 60</span>
+<span><i style="background:#4A7A66"></i>start 65</span>
+<span><i style="background:#0E5A43"></i>start 70</span>
+</div>
+</div>
+<canvas id="chart" width="860" height="360" role="img" aria-label="Line chart comparing cumulative CPP received from age 60 to 95 for start ages 60, 65 and 70, with crossover points where later start ages overtake earlier ones"></canvas>
+</div>
+</div>
+
+<!-- AdSense slot 1: below calculator -->
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>How this calculator works</h2>
+<p>CPP applies a permanent adjustment based on your start age: <strong>−0.6% for every month before 65</strong> (36% less at 60, leaving 64%) and <strong>+0.7% for every month after 65</strong> (42% more at 70, i.e. 142%). Your monthly amount and lifetime total are:</p>
+<div class="formula">monthly at 60 = amount at 65 × 0.64&nbsp;&nbsp;·&nbsp;&nbsp;monthly at 70 = amount at 65 × 1.42<br>lifetime total = monthly × 12 × (life expectancy − start age)</div>
+<p>A useful property falls out of this math: <strong>the breakeven ages don't depend on your pension amount.</strong> Whether you'll receive the maximum or a fraction of it, 65 overtakes 60 at about 73.9 and 70 overtakes 65 at about 81.9 — the percentages scale everything proportionally.</p>
+<p>The comparison is in today's dollars. Since CPP is indexed to CPI at every start age, inflation lifts all three scenarios together and the crossover ages barely move. What this simple model deliberately ignores: investment returns if you take early money and invest it, taxes (CPP is taxable income), and interactions with GIS and the OAS clawback — those depend on your full financial picture and can shift the answer for lower- and higher-income retirees respectively.</p>
+</section>
+
+<section class="content">
+<h2>Worked example: the average pension, three ways</h2>
+<p>A Canadian entitled to the 2026 average of $925.35 at 65, planning to age 85:</p>
+<table class="example-table">
+<tr><th>Start age</th><th>Monthly amount</th><th>Total by age 85</th></tr>
+<tr><td>60</td><td>$592.22 (64%)</td><td>$177,667</td></tr>
+<tr><td>65</td><td>$925.35 (100%)</td><td>$222,084</td></tr>
+<tr><td>70</td><td>$1,314.00 (142%)</td><td>$236,520</td></tr>
+</table>
+<p>Living to 85, waiting until 70 collects about <strong>$59,000 more</strong> than starting at 60 — but the picture flips completely if this person only lives to 75, where starting at 60 wins by a wide margin. That's the whole decision: it's a bet on your own longevity, which is why health and family history matter more than any general rule.</p>
+</section>
+
+<!-- AdSense slot 2: mid-content -->
+<div class="ad-slot"></div>
+
+<section class="content faq">
+<h2>CPP timing questions, answered</h2>
+<details>
+<summary>How much is CPP reduced if I take it at 60?</summary>
+<p>−0.6% per month before 65, a maximum cut of 36% at exactly 60 — you keep 64% of your age-65 amount, permanently. On the 2026 maximum of $1,507.65 that's about $964.90; on the average of $925.35, about $592.22.</p>
+</details>
+<details>
+<summary>How much does CPP increase if I wait until 70?</summary>
+<p>+0.7% per month after 65, a maximum boost of 42% at 70 — 142% of your age-65 amount, permanently. There is no benefit to waiting past 70. On the 2026 maximum, roughly $2,140.86 per month.</p>
+</details>
+<details>
+<summary>What are the breakeven ages?</summary>
+<p>65 overtakes 60 at about 73.9; 70 overtakes 65 at about 81.9; 70 overtakes 60 at about 78.2. These are the same for everyone regardless of pension size, because the adjustments are proportional.</p>
+</details>
+<details>
+<summary>When does taking CPP early make sense?</summary>
+<p>You need the income now; your health or family history points to a shorter horizon; or you expect to rely on GIS later, since higher CPP reduces GIS entitlement.</p>
+</details>
+<details>
+<summary>When does delaying make sense?</summary>
+<p>Good health and family longevity; still working at 65; or you value a larger guaranteed, CPI-indexed income for life — delaying is effectively buying more inflation-protected annuity at a price no insurer matches.</p>
+</details>
+<details>
+<summary>Can I change my mind after starting?</summary>
+<p>Only within 12 months of your first payment, and you must repay everything received. After that the choice is permanent — which is exactly why it's worth running these numbers before applying.</p>
+</details>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>Disclaimer:</strong> This calculator is for education and planning only and is not financial or tax advice. It uses the 2026 CPP adjustment factors and compares nominal cumulative totals, ignoring taxes, investment returns, and GIS/OAS interactions. Your actual entitlement depends on your contribution record — check your My Service Canada Account and consider licensed advice before deciding.</p>
+<p>© 2026 MapleCalcs · Made in Canada 🍁</p>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',maximumFractionDigits:0});
+const fmt2 = new Intl.NumberFormat('en-CA',{style:'currency',currency:'CAD',minimumFractionDigits:2,maximumFractionDigits:2});
+const parseNum = s => parseFloat(String(s).replace(/[^0-9.]/g,'')) || 0;
+
+const le=$('lifeExp');
+for(let a=72;a<=100;a++){const o=document.createElement('option');o.value=a;o.textContent='age '+a;if(a===85)o.selected=true;le.appendChild(o);}
+
+const F60=0.64, F65=1.0, F70=1.42;
+
+function cumAt(monthly,startAge,age){ return age<=startAge?0:monthly*12*(age-startAge); }
+
+function calc(){
+const B = parseNum($('base').value);
+const L = parseInt($('lifeExp').value,10);
+if(B<=0)return;
+
+const m60=B*F60, m65=B*F65, m70=B*F70;
+const t60=cumAt(m60,60,L), t65=cumAt(m65,65,L), t70=cumAt(m70,70,L);
+
+$('mo60').textContent=fmt2.format(m60)+'/mo';
+$('mo65').textContent=fmt2.format(m65)+'/mo';
+$('mo70').textContent=fmt2.format(m70)+'/mo';
+$('tot60').textContent=fmt.format(t60);
+$('tot65').textContent=fmt.format(t65);
+$('tot70').textContent=fmt.format(t70);
+
+const best=Math.max(t60,t65,t70);
+$('s60').classList.toggle('win',t60===best);
+$('s65').classList.toggle('win',t65===best);
+$('s70').classList.toggle('win',t70===best);
+
+drawChart(B,L);
+}
+
+function drawChart(B,L){
+const cv=$('chart'), ctx=cv.getContext('2d');
+const dpr=window.devicePixelRatio||1;
+const cssW=cv.clientWidth||860, cssH=cssW<560?300:360;
+cv.width=cssW*dpr; cv.height=cssH*dpr; ctx.scale(dpr,dpr);
+ctx.clearRect(0,0,cssW,cssH);
+
+const a0=60,a1=95;
+const padL=64,padR=14,padT=14,padB=30;
+const W=cssW-padL-padR, H=cssH-padT-padB;
+const maxY=cumAt(B*F70,70,a1);
+const x=a=>padL+(a-a0)/(a1-a0)*W;
+const y=v=>padT+(1-v/maxY)*H;
+
+ctx.strokeStyle='#E4E8E2';ctx.lineWidth=1;ctx.font='11px "Spline Sans Mono",monospace';ctx.fillStyle='#8A968D';
+for(let g=0;g<=4;g++){
+const gy=padT+H*g/4;
+ctx.beginPath();ctx.moveTo(padL,gy);ctx.lineTo(padL+W,gy);ctx.stroke();
+ctx.fillText('$'+Math.round(maxY*(1-g/4)/1000)+'k',6,gy+4);
+}
+for(let a=a0;a<=a1;a+=5){ ctx.fillText(a,x(a)-8,cssH-8); }
+
+/* life-expectancy marker */
+ctx.strokeStyle='#B3372E';ctx.setLineDash([4,4]);ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(x(L),padT);ctx.lineTo(x(L),padT+H);ctx.stroke();
+ctx.setLineDash([]);
+ctx.fillStyle='#B3372E';
+ctx.fillText('plan age',Math.min(x(L)+5,cssW-68),padT+12);
+
+const draw=(f,start,color,wd)=>{
+ctx.strokeStyle=color;ctx.lineWidth=wd;ctx.beginPath();
+let first=true;
+for(let a=a0;a<=a1;a+=0.25){
+const v=cumAt(B*f,start,a);
+first?ctx.moveTo(x(a),y(v)):ctx.lineTo(x(a),y(v));
+first=false;
+}
+ctx.stroke();
+};
+draw(F60,60,'#9AAAA0',2);
+draw(F65,65,'#4A7A66',2);
+draw(F70,70,'#0E5A43',2.5);
+}
+
+['base','lifeExp'].forEach(id=>{
+$(id).addEventListener('input',calc);
+$(id).addEventListener('change',calc);
+});
+let rz;window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(calc,150);});
+calc();
+})();
+</script>
+</body>
+</html>
