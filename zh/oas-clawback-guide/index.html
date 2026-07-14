@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>如何減少 OAS 回收稅(Clawback)?決策指南(2026)</title>
+<meta name="description" content="OAS 回收稅決策指南——RRIF 提領時機、退休金收入分割、延後領取 OAS、TFSA 提領順序,搭配 OAS 回收稅計算機一起使用。">
+<link rel="canonical" href="https://maplecalcs.org/zh/oas-clawback-guide/">
+<link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/oas-clawback-guide/">
+<link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/oas-clawback-guide/">
+<link rel="alternate" hreflang="x-default" href="https://maplecalcs.org/oas-clawback-guide/">
+<meta property="og:title" content="如何減少 OAS 回收稅(Clawback)?決策指南">
+<meta property="og:description" content="決定如何管理 OAS 回收稅真正該問自己的問題——不只是門檻的數字。">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Spline+Sans+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6415320652988379" crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Article",
+"headline": "如何減少 OAS 回收稅(Clawback)?決策指南",
+"description": "管理 OAS 回收稅的決策框架,涵蓋 RRIF 提領時機、退休金收入分割、延後領取 OAS 與 TFSA 提領順序。",
+"url": "https://maplecalcs.org/zh/oas-clawback-guide/",
+"inLanguage": "zh-Hant",
+"author": { "@type": "Organization", "name": "MapleCalcs" },
+"publisher": { "@type": "Organization", "name": "MapleCalcs" }
+}
+</script>
+
+<style>
+:root{
+--ink:#13201B; --paper:#F6F7F3; --card:#FFFFFF;
+--pine:#0E5A43; --pine-soft:#E3EEE8;
+--shock:#B3372E; --shock-soft:#F7E9E7;
+--line:#D9DED7; --muted:#5C6A61;
+--mono:'Spline Sans Mono',ui-monospace,monospace;
+--sans:'Noto Sans TC','Archivo',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.8;font-size:16px}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.topbar{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap;max-width:760px;margin:0 auto;padding-left:20px;padding-right:20px}
+.brand{font-weight:800;letter-spacing:-0.02em;font-size:1rem;color:var(--pine);text-decoration:none}
+.brand span{color:var(--muted);font-weight:500}
+.lang{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--muted)}
+.lang a{color:var(--pine);text-decoration:none}
+.hero{padding:40px 0 8px}
+.kicker{font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pine);margin-bottom:10px}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);font-weight:800;letter-spacing:-0.02em;line-height:1.4}
+.hero p.lede{margin-top:14px;color:var(--muted);font-size:1.05rem}
+.calc-cta{display:block;background:var(--pine-soft);border:1px solid var(--pine);border-radius:12px;padding:16px 18px;margin:26px 0;text-decoration:none;color:var(--ink)}
+.calc-cta strong{color:var(--pine)}
+section.content{padding:26px 0;border-top:1px solid var(--line)}
+section.content:first-of-type{border-top:none}
+section.content h2{font-size:1.2rem;font-weight:800;letter-spacing:-0.01em;margin-bottom:14px;color:var(--pine)}
+section.content p{margin-bottom:14px}
+section.content .callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--pine);border-radius:8px;padding:16px 18px;margin:16px 0;font-size:.95rem}
+.ad-slot{margin:14px 0;text-align:center;font-size:.7rem;color:#B7BFB9;min-height:0}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:.8rem;color:var(--muted)}
+footer p{margin-bottom:8px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="topbar">
+<a class="brand" href="/zh/">MapleCalcs <span>· 加拿大理財計算機</span></a>
+<span class="lang"><a href="/oas-clawback-guide/">English</a> | 繁體中文</span>
+</div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+<div class="kicker">OAS 回收稅指南</div>
+<h1>如何減少 OAS 回收稅(Clawback)?決策指南</h1>
+<p class="lede">回收稅計算機能告訴你以目前收入要繳多少回收稅,但沒辦法告訴你自己是不是真的落在「昂貴區間」,或是下面這些常見規劃手法哪一個真的適合你。答案取決於這幾個問題。</p>
+</div>
+
+<a class="calc-cta" href="/zh/oas-clawback-calculator/"><strong>先跑一次數字 →</strong> 用 OAS 回收稅計算機看看你的回收稅與減少後的月付金。</a>
+
+<section class="content">
+<h2>問題一:你真的落在昂貴區間,還是早就超過了、不用煩惱?</h2>
+<p>完全被回收代表你的退休收入大約在 15.5 萬以上——這其實是儲蓄計畫成功的訊號,不是需要解決的問題。真正昂貴的是門檻剛上面那個區間,在那裡每多賺一塊錢,除了要繳一般所得稅,還要額外損失 15 分錢的 OAS。如果一次強制 RRIF 提領或一次性資本利得,把你推進這個區間幾千塊,那才是真正值得主動管理的情況。</p>
+<p>在假設自己需要採取行動之前,先確認自己實際落在哪裡。如果你的收入還遠低於門檻,下面這些策略暫時都用不上。如果你早就遠遠超過上限,回收稅已經完全反映在你的計畫裡了,再怎麼調整空間也有限。</p>
+</section>
+
+<section class="content">
+<h2>問題二:延後領 OAS 真的有幫助,還是只是把同樣的問題往後延?</h2>
+<p>65 歲之後延後領 OAS,最終月付金會增加,每個月 0.6%,最多到 70 歲增加 36%——但這並不會降低回收稅的比率,而且門檻本身也會隨通膨逐年調高,不管你什麼時候開始領都一樣。延後領取最有幫助的情況,是你預期在原本該開始領 OAS 之後那幾年收入會明顯降低(例如停止工作、但強制 RRIF 提領還沒開始之間的空檔),這樣一來,較高的最終給付金額會落在回收稅較低的年份。</p>
+<p>如果不管什麼時候開始領 OAS,你的收入都會落在回收稅區間內,那延後領取多半只是把同一個問題延後發生,而不是真正解決它。</p>
+</section>
+
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>問題三:退休金收入分割你能不能用?用了嗎?</h2>
+<p>回收稅門檻是以個人為單位計算的,分別檢視配偶各自的淨世界收入。如果配偶其中一方的合格退休金收入明顯高於另一方,把最多 50% 分割給對方,可能讓收入較高的一方退回門檻以下,同時墊高收入較低一方的收入——如果對方離自己的門檻還有空間,通常是淨賺的做法。</p>
+<div class="callout">這只適用於合格的退休金收入(一般來說 RRIF 與某些退休金計畫收入符合資格;CPP 與 OAS 本身不算,不過 CPP 有自己另外的分享機制)。在假設這個做法適用之前,先確認你的收入來源是否符合資格。</div>
+</section>
+
+<section class="content">
+<h2>問題四:你提領各帳戶的順序,有沒有把回收稅風險降到最低?</h2>
+<p>TFSA 提領完全不會被算進回收稅的計算,而 RRSP/RRIF 提領則會全額計入。如果你某一年在提領哪個帳戶上有選擇空間,先花 TFSA 的錢——把 RRIF 提領留到其他收入比較低的年份——能讓你在最關鍵的那幾年離門檻更遠。</p>
+<p>有些退休族也會刻意在 OAS 開始領之前(這時還沒有回收稅風險)提前「消耗」RRSP,目的是縮小之後強制 RRIF 提領的金額,減少未來被算作收入的部分。這是用「提早多繳一點稅」換取「之後少一點回收稅風險」——值得跟顧問一起試算,而不是直接假設這樣做一定比較好。</p>
+</section>
+
+<div class="ad-slot"></div>
+
+<section class="content">
+<h2>最常見的錯誤:忘記一年的時間落差</h2>
+<p>CRA 是用「去年」的收入去對照門檻,並從隔年 7 月開始的給付中扣減——2026 年的收入影響的是 2027 年 7 月到 2028 年 6 月的給付,不是 2026 年當年的給付。一次性的收入暴增,例如賣掉出租房產或一大筆 RRIF 提領,常常會在整整一年之後才「突然」造成 OAS 被回收,那時你可能都快忘了當初那筆交易。如果你知道即將有一筆大額的一次性收入,要提前一年規劃屆時 OAS 會減少,而不是等到眼前才反應。</p>
+</section>
+
+<section class="content">
+<h2>如果你只想要一句話的結論</h2>
+<p>先搞清楚自己是不是真的落在門檻之上的昂貴區間,再決定要不要採取行動。如果是:檢查退休金收入分割能不能幫上忙,在有選擇的情況下先花 TFSA 再動用 RRIF,並考慮延後領 OAS 是否剛好對應到你其他收入真正會降低的那幾年。記住今年的收入變化,要等 18 個月後才會反映在 OAS 上。</p>
+<p>以上都不能取代你拿著自己實際的收入,親自跑一次計算機。<a href="/zh/oas-clawback-calculator/" style="color:var(--pine);font-weight:700">前往 OAS 回收稅計算機 →</a></p>
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+<p><strong>免責聲明:</strong>本文僅供教育與規劃參考,不構成稅務或財務建議。請在做決定前向會計師或有執照的理財顧問確認您的實際情況。</p>
+<p>© 2026 MapleCalcs · Made in Canada 🍁</p>
+</div>
+</footer>
+
+</body>
+</html>
