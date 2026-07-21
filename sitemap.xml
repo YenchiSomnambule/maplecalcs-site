@@ -110,14 +110,4 @@
 <xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/probate-fees-guide/"/>
 <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/probate-fees-guide/"/>
 </url>
-<url>
-<loc>https://maplecalcs.org/privacy/</loc>
-<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/privacy/"/>
-<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/privacy/"/>
-</url>
-<url>
-<loc>https://maplecalcs.org/zh/privacy/</loc>
-<xhtml:link rel="alternate" hreflang="en-CA" href="https://maplecalcs.org/privacy/"/>
-<xhtml:link rel="alternate" hreflang="zh-Hant" href="https://maplecalcs.org/zh/privacy/"/>
-</url>
 </urlset>
